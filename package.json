@@ -2,7 +2,7 @@
   "name": "ephect-syntax-highlighting",
   "displayName": "Ephect Syntax Highlighting",
   "description": "Syntax highlighting for Ephect framework templates with HTML HEREDOC and simplified PHP syntax",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "publisher": "ephect-io",
   "engines": {
     "vscode": "^1.74.0"

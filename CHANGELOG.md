@@ -1,3 +1,22 @@
+## [0.2.0] - 2024-11-16
+
+### 🔧 Standards de Développement
+
+- **Conventional Commits** : Règles de commit standardisées avec validation automatique
+- **Commitlint** : Configuration avec scopes spécifiques à Ephect
+- **Husky** : Hooks Git pour validation automatique des commits
+- **Prettier** : Formatage automatique du code
+- **ESLint** : Validation de la qualité du code TypeScript
+- **GitHub Actions** : Workflow de validation des PR
+- **Standard-version** : Génération automatique des releases
+
+### 📚 Documentation
+
+- Guide complet des standards de commits
+- Template de Pull Request
+- Configuration de développement documentée
+- Scripts npm pour automatisation
+
 ## [0.1.2] - 2024-11-16
 
 ### ⭐ Compatibilité Intelephense
