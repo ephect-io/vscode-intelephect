@@ -2,7 +2,7 @@
   "name": "ephect-syntax-highlighting",
   "displayName": "Ephect Syntax Highlighting",
   "description": "Syntax highlighting for Ephect framework templates with HTML HEREDOC and simplified PHP syntax",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "publisher": "ephect-io",
   "engines": {
     "vscode": "^1.74.0"
@@ -23,26 +23,27 @@
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
-    "languages": [
-      {
-        "id": "ephect-php",
-        "aliases": [
-          "Ephect PHP",
-          "ephect-php"
-        ],
-        "extensions": [
-          ".php"
-        ],
-        "configuration": "./language-configuration.json"
-      }
-    ],
     "grammars": [
       {
-        "language": "ephect-php",
+        "language": "php",
         "scopeName": "source.php.ephect",
-        "path": "./syntaxes/ephect-php.tmLanguage.json"
+        "path": "./syntaxes/ephect-php.tmLanguage.json",
+        "injectTo": [
+          "source.php"
+        ]
       }
     ],
+    "configuration": {
+      "type": "object",
+      "title": "Ephect Syntax Highlighting",
+      "properties": {
+        "ephect.enableIntelephenseCompatibility": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable compatibility mode with Intelephense PHP language server"
+        }
+      }
+    },
     "themes": [
       {
         "label": "Ephect Dark",
@@ -51,6 +52,8 @@
       }
     ]
   },
+  "extensionPack": [],
+  "extensionDependencies": [],
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",

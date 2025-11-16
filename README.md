@@ -1,13 +1,13 @@
 # Ephect Syntax Highlighting Extension
 
-Extension VS Code pour la coloration syntaxique des templates Ephect Framework avec support pour HTML HEREDOC et syntaxe PHP simplifiée.
+Extension VS Code pour la coloration syntaxique des templates Ephect Framework avec support pour HTML HEREDOC et syntaxe PHP simplifiée. **Compatible avec Intelephense** pour une expérience de développement PHP complète.
 
 ## Description
 
 Cette extension fournit une coloration syntaxique avancée pour les fichiers PHP utilisant le framework Ephect, avec un support spécial pour :
 
 - **Blocs HEREDOC HTML** : Coloration HTML à l'intérieur des blocs `<<< HTML ... HTML`
-- **Syntaxe PHP simplifiée** : Directives Ephect précédées de `@` (`@for`, `@if`, `@done`, etc.)
+- **Syntaxe PHP simplifiée** : Directives Ephect précédées de `@` (`@for`, `@if`, `@while`, `@elseif`, `@op`, `@do`, `@done`, etc.)
 - **Interpolation de variables** : Variables Ephect (`%variable`) et interpolations `{{ variable }}`
 
 ## Fonctionnalités
@@ -16,7 +16,7 @@ Cette extension fournit une coloration syntaxique avancée pour les fichiers PHP
 
 - **PHP standard** : Mots-clés, variables, chaînes, commentaires
 - **HTML dans HEREDOC** : Balises, attributs, contenu
-- **Directives Ephect** : `@for`, `@if`, `@else`, `@done`
+- **Directives Ephect** : `@for`, `@while`, `@if`, `@elseif`, `@else`, `@op`, `@do`, `@done`
 - **Variables Ephect** : `%variable->property` avec coloration spéciale
 - **Interpolations** : `{{ variable->property }}` avec délimiteurs colorés
 
@@ -97,7 +97,28 @@ function TableOfResources($props): string
 }
 ```
 
+## 🤝 Compatibilité Intelephense
+
+Cette extension est **entièrement compatible** avec [Intelephense](https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client), le serveur de langage PHP le plus populaire :
+
+✅ **Toutes les fonctionnalités Intelephense préservées** (IntelliSense, diagnostics, navigation)  
+✅ **Coloration syntaxique Ephect ajoutée** par injection de grammaire  
+✅ **Détection automatique** et mode compatibilité  
+
+> 💡 **Recommandé** : Installer Intelephense + cette extension pour la meilleure expérience de développement PHP/Ephect
+
+📖 [Guide détaillé de compatibilité](./INTELEPHENSE_COMPATIBILITY.md)
+
 ## Installation
+
+### Recommandée (avec Intelephense)
+
+1. **Installer Intelephense** :
+   ```
+   Ctrl+Shift+P > Extensions: Install Extensions > "Intelephense"
+   ```
+
+2. **Installer cette extension** (voir section suivante)
 
 ### Depuis VSIX (Développement)
 
@@ -121,10 +142,17 @@ function TableOfResources($props): string
 
 ### Configuration
 
-L'extension s'active automatiquement pour les fichiers `.php`. Pour l'utiliser optimalement :
+L'extension s'active automatiquement pour les fichiers `.php` et s'injecte dans la grammaire PHP existante :
 
 1. **Sélectionnez le thème** : `Ctrl+Shift+P` → "Preferences: Color Theme" → "Ephect Dark"
-2. **Associez le langage** : En bas à droite de VS Code, cliquez sur le type de fichier et sélectionnez "Ephect PHP"
+2. **Configuration Intelephense** (optionnelle) :
+   ```json
+   {
+     "ephect.enableIntelephenseCompatibility": true,
+     "php.suggest.basic": false,
+     "php.validate.enable": false
+   }
+   ```
 
 ## Syntaxe Supportée
 
@@ -135,11 +163,23 @@ L'extension s'active automatiquement pour les fichiers `.php`. Pour l'utiliser o
     // Contenu de la boucle
 @done
 
+@while %condition do
+    // Boucle while
+@done
+
 @if %condition do
     // Contenu conditionnel
+@elseif %otherCondition do
+    // Autre condition
 @else
     // Contenu alternatif  
 @done
+
+@do
+    // Bloc do simple
+@done
+
+@op $variable = someFunction();  // Code PHP sur une ligne
 ```
 
 ### Variables et Interpolation
