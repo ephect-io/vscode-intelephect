@@ -2,7 +2,7 @@
   "name": "ephect-syntax-highlighting",
   "displayName": "Ephect Syntax Highlighting",
   "description": "Syntax highlighting for Ephect framework templates with HTML HEREDOC and simplified PHP syntax",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "publisher": "ephect-io",
   "engines": {
     "vscode": "^1.74.0"
@@ -23,26 +23,27 @@
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
-    "languages": [
-      {
-        "id": "ephect-php",
-        "aliases": [
-          "Ephect PHP",
-          "ephect-php"
-        ],
-        "extensions": [
-          ".php"
-        ],
-        "configuration": "./language-configuration.json"
-      }
-    ],
     "grammars": [
       {
-        "language": "ephect-php",
+        "language": "php",
         "scopeName": "source.php.ephect",
-        "path": "./syntaxes/ephect-php.tmLanguage.json"
+        "path": "./syntaxes/ephect-php.tmLanguage.json",
+        "injectTo": [
+          "source.php"
+        ]
       }
     ],
+    "configuration": {
+      "type": "object",
+      "title": "Ephect Syntax Highlighting",
+      "properties": {
+        "ephect.enableIntelephenseCompatibility": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable compatibility mode with Intelephense PHP language server"
+        }
+      }
+    },
     "themes": [
       {
         "label": "Ephect Dark",
@@ -51,15 +52,43 @@
       }
     ]
   },
+  "extensionPack": [],
+  "extensionDependencies": [],
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./"
+    "watch": "tsc -watch -p ./",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint src --ext ts",
+    "lint:fix": "eslint src --ext ts --fix",
+    "commit": "git-cz",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "release": "standard-version",
+    "prepare": "husky install",
+    "test:commit": "commitlint --from HEAD~1 --to HEAD --verbose"
   },
   "devDependencies": {
-    "@types/vscode": "^1.74.0",
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
     "@types/node": "16.x",
+    "@types/vscode": "^1.74.0",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "commitizen": "^4.3.0",
+    "conventional-changelog-cli": "^4.1.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.54.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.1.0",
+    "prettier": "^3.1.0",
+    "standard-version": "^9.5.0",
     "typescript": "^4.9.4"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   },
   "repository": {
     "type": "git",

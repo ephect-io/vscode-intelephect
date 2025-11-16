@@ -7,6 +7,7 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+*.log
 
 # Environnement
 .env
@@ -17,6 +18,12 @@ yarn-error.log*
 
 # Cache TypeScript
 *.tsbuildinfo
+
+# ESLint cache
+.eslintcache
+
+# Prettier cache
+.prettiercache
 
 # Fichiers OS
 .DS_Store
@@ -32,3 +39,11 @@ Thumbs.db
 .vscode/tasks.json
 .vscode/launch.json
 .vscode/extensions.json
+
+# Coverage reports
+coverage/
+*.lcov
+
+# Temporary files
+tmp/
+temp/
