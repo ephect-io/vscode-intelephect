@@ -17,8 +17,8 @@ function ComplexComponent($props): string
         <h2>Exemple avec toutes les directives Ephect</h2>
         
         <!-- Directive @op pour du code PHP inline -->
-        @op $totalCount = count($items);
-        @op $displayLimit = min($totalCount, $maxItems);
+        @op %totalCount = count(%items)
+        @op %displayLimit = min(%totalCount, %maxItems)
         
         <div class="stats">
             <p>Total d'éléments : {{ totalCount }}</p>
@@ -43,8 +43,8 @@ function ComplexComponent($props): string
         <!-- Directive @for avec compteur -->
         <div class="items-list">
             @for %items as %item do
-                @op $counter++;
-                @if %counter <= $displayLimit do
+                @op %counter++;
+                @if %counter <= %displayLimit do
                     <div class="item" data-index="{{ counter }}">
                         <h4>{{ item->title }}</h4>
                         <p>{{ item->description }}</p>
@@ -52,10 +52,10 @@ function ComplexComponent($props): string
                         <!-- Directive @while pour les tags -->
                         @if %item->tags do
                             <div class="tags">
-                                @op $tagIndex = 0;
+                                @op %tagIndex = 0;
                                 @while %tagIndex < count(item->tags) && %tagIndex < 5 do
                                     <span class="tag">{{ item->tags[tagIndex]->name }}</span>
-                                    @op $tagIndex++;
+                                    @op %tagIndex++;
                                 @done
                             </div>
                         @done
@@ -72,14 +72,14 @@ function ComplexComponent($props): string
         @done
 
         <!-- Boucle @while pour pagination -->
-        @if %totalCount > $displayLimit do
+        @if %totalCount > %displayLimit do
             <div class="pagination">
-                @op $page = 1;
-                @op $totalPages = ceil($totalCount / $displayLimit);
+                @op %page = 1
+                @op %totalPages = ceil(%totalCount / %displayLimit)
                 
-                @while %page <= $totalPages && %page <= 10 do
+                @while %page <= %totalPages && %page <= 10 do
                     <a href="?page={{ page }}" class="page-link">{{ page }}</a>
-                    @op $page++;
+                    @op %page++
                 @done
                 
                 @if %totalPages > 10 do
@@ -91,7 +91,7 @@ function ComplexComponent($props): string
         <!-- Exemple complexe avec conditions imbriquées -->
         @for %items as %item do
             @if %item->category do
-                @op $categoryClass = strtolower(str_replace(' ', '-', $item->category->name));
+                @op %categoryClass = strtolower(str_replace(' ', '-', %item->category->name));
                 
                 <div class="item-{{ categoryClass }}">
                     @if %item->priority == 'high' do
@@ -132,29 +132,29 @@ function AdvancedTable($props): string
 
     return (<<< HTML
     <div class="advanced-table">
-        @op $filteredData = [];
-        @op $filterCount = 0;
+        @op %filteredData = [];
+        @op %filterCount = 0;
         
         <!-- Application des filtres avec @while -->
         @for %data as %row do
-            @op $passesFilter = true;
-            @op $filterIndex = 0;
+            @op %passesFilter = true
+            @op %filterIndex = 0
             
-            @while %filterIndex < count($filters) && %passesFilter do
-                @op $filter = $filters[$filterIndex];
+            @while %filterIndex < count(%filters) && %passesFilter do
+                @op %filter = %filters[%filterIndex]
                 @if %filter->active do
-                    @op $fieldValue = $row->getValue($filter->field);
-                    @if %filter->operator == 'equals' && $fieldValue != $filter->value do
-                        @op $passesFilter = false;
-                    @elseif %filter->operator == 'contains' && !str_contains($fieldValue, $filter->value) do
-                        @op $passesFilter = false;
+                    @op %fieldValue = %row->getValue(%filter->field)
+                    @if %filter->operator == 'equals' && %fieldValue != %filter->value do
+                        @op %passesFilter = false
+                    @elseif %filter->operator == 'contains' && !str_contains(%fieldValue, %filter->value) do
+                        @op %passesFilter = false
                     @done
                 @done
-                @op $filterIndex++;
+                @op %filterIndex++
             @done
             
             @if %passesFilter do
-                @op $filteredData[] = $row;
+                @op %filteredData[] = %row
             @done
         @done
         
@@ -172,11 +172,11 @@ function AdvancedTable($props): string
                 @for %columns as %column do
                     <td>
                         @if %column->type == 'currency' do
-                            @op $value = number_format($row->getValue($column->field), 2);
+                            @op %value = number_format(%row->getValue(%column->field), 2)
                             {{ value }} €
                         @elseif %column->type == 'date' do
-                            @op $date = $row->getValue($column->field);
-                            {{ date ? $date->format('d/m/Y') : 'N/A' }}
+                            @op %date = %row->getValue(%column->field)
+                            {{ date ? %date->format('d/m/Y') : 'N/A' }}
                         @else
                             {{ row->getValue(column->field) }}
                         @done

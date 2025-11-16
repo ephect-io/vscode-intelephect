@@ -1,9 +1,9 @@
 # Conventional Commits
 
-Ce projet utilise le standard [Conventional Commits](https://www.conventionalcommits.org/) pour les
-messages de commit.
+This project uses the [Conventional Commits](https://www.conventionalcommits.org/) standard for
+commit messages.
 
-## Format des Commits
+## Commit Format
 
 ```
 <type>[optional scope]: <description>
@@ -13,34 +13,34 @@ messages de commit.
 [optional footer(s)]
 ```
 
-### Types Obligatoires
+### Required Types
 
-- **feat**: Nouvelle fonctionnalité
-- **fix**: Correction de bug
-- **docs**: Changements de documentation seulement
-- **style**: Changements qui n'affectent pas le sens du code (espaces, formatage, etc.)
-- **refactor**: Changement de code qui ne corrige pas un bug ni ajoute une fonctionnalité
-- **perf**: Changement de code qui améliore les performances
-- **test**: Ajout de tests manquants ou correction de tests existants
-- **chore**: Changements aux outils de build ou dépendances auxiliaires
+- **feat**: New feature
+- **fix**: Bug fix
+- **docs**: Documentation changes only
+- **style**: Changes that don't affect the meaning of the code (whitespace, formatting, etc.)
+- **refactor**: Code change that neither fixes a bug nor adds a feature
+- **perf**: Code change that improves performance
+- **test**: Adding missing tests or correcting existing tests
+- **chore**: Changes to build tools or auxiliary dependencies
 
-### Scope (Optionnel)
+### Scope (Optional)
 
-- **syntax**: Grammaire et règles de syntaxe
-- **theme**: Thèmes de couleur
-- **compat**: Compatibilité avec d'autres extensions
-- **config**: Configuration de l'extension
+- **syntax**: Grammar and syntax rules
+- **theme**: Color themes
+- **compat**: Compatibility with other extensions
+- **config**: Extension configuration
 
-### Règles
+### Rules
 
-1. **Type obligatoire** : Chaque commit doit commencer par un type valide
-2. **Minuscules** : Le type et la description doivent être en minuscules
-3. **Pas de point final** : La description ne doit pas se terminer par un point
-4. **Présent impératif** : Utiliser l'impératif présent ("add" pas "added" ou "adds")
-5. **50 caractères max** : La ligne de description doit faire moins de 50 caractères
-6. **Corps optionnel** : Séparer le corps par une ligne vide et limiter à 72 caractères par ligne
+1. **Required type**: Each commit must start with a valid type
+2. **Lowercase**: Type and description must be in lowercase
+3. **No trailing period**: Description should not end with a period
+4. **Imperative present**: Use imperative present tense ("add" not "added" or "adds")
+5. **50 characters max**: Description line should be less than 50 characters
+6. **Optional body**: Separate body with blank line and limit to 72 characters per line
 
-## Exemples Valides
+## Valid Examples
 
 ```bash
 feat: add support for @while directive
@@ -57,59 +57,59 @@ fix(theme): improve variable color contrast
 docs(compat): add intelephense compatibility guide
 ```
 
-## Exemples Invalides
+## Invalid Examples
 
 ```bash
-# ❌ Pas de type
+# ❌ No type
 update readme file
 
-# ❌ Majuscules
+# ❌ Uppercase
 FEAT: add new feature
 Fix: correct bug
 
-# ❌ Point final
+# ❌ Trailing period
 feat: add new directive.
 
-# ❌ Trop long
+# ❌ Too long
 feat: add support for a very long feature that does way too many things and should probably be split
 
-# ❌ Mauvais temps
+# ❌ Wrong tense
 feat: added new feature
 fix: fixed the bug
 ```
 
-## Configuration Automatique
+## Automatic Configuration
 
-Le projet inclut des outils pour valider automatiquement les commits :
+The project includes tools to automatically validate commits:
 
-- **commitlint** : Valide le format des messages de commit
-- **husky** : Hook Git pour exécuter la validation avant commit
-- **lint-staged** : Exécute des vérifications sur les fichiers modifiés
+- **commitlint**: Validates commit message format
+- **husky**: Git hook to run validation before commit
+- **lint-staged**: Runs checks on modified files
 
-## Installation des Hooks
+## Hook Installation
 
 ```bash
 npm install
 npm run prepare
 ```
 
-## Générer un Changelog
+## Generate Changelog
 
 ```bash
 npm run changelog
 ```
 
-## Validation Manuelle
+## Manual Validation
 
 ```bash
-# Tester un message de commit
+# Test a commit message
 echo "feat: add new feature" | npx commitlint
 
-# Valider le dernier commit
+# Validate the last commit
 npx commitlint --from HEAD~1 --to HEAD --verbose
 ```
 
-## Ressources
+## Resources
 
 - [Conventional Commits](https://www.conventionalcommits.org/)
 - [commitlint](https://commitlint.js.org/)

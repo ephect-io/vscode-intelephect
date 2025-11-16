@@ -1,89 +1,89 @@
-# Compatibilité avec Intelephense
+# Intelephense Compatibility
 
-Cette extension Ephect Syntax Highlighting est conçue pour être entièrement compatible avec
+This Ephect Syntax Highlighting extension is designed to be fully compatible with
 [Intelephense](https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client),
-le serveur de langage PHP le plus populaire pour VS Code.
+the most popular PHP language server for VS Code.
 
-## Comment ça fonctionne
+## How it works
 
-### Mode Injection de Grammaire
+### Grammar Injection Mode
 
-Au lieu de remplacer la grammaire PHP standard, cette extension utilise le système d'**injection de
-grammaire** de VS Code. Cela signifie que :
+Instead of replacing the standard PHP grammar, this extension uses VS Code's **grammar injection**
+system. This means:
 
-✅ **Toutes les fonctionnalités Intelephense sont préservées** :
+✅ **All Intelephense features are preserved**:
 
-- IntelliSense et auto-complétion
-- Analyse de code et diagnostics
+- IntelliSense and auto-completion
+- Code analysis and diagnostics
 - Navigation (Go to Definition, Find References)
-- Refactoring et renommage de symboles
-- Documentation hover et signature help
+- Refactoring and symbol renaming
+- Hover documentation and signature help
 
-✅ **Les fonctionnalités Ephect sont ajoutées** :
+✅ **Ephect features are added**:
 
-- Coloration syntaxique pour `@for`, `@if`, `@while`, etc.
-- Support des blocs HEREDOC HTML
-- Coloration des variables Ephect (`%variable`)
+- Syntax highlighting for `@for`, `@if`, `@while`, etc.
+- HTML HEREDOC block support
+- Ephect variable highlighting (`%variable`)
 - Interpolation `{{ variable }}`
 
-### Configuration Automatique
+### Automatic Configuration
 
-L'extension détecte automatiquement si Intelephense est installé :
+The extension automatically detects if Intelephense is installed:
 
-- **Avec Intelephense** : Mode compatibilité activé automatiquement
-- **Sans Intelephense** : Suggestion d'installation pour une meilleure expérience
+- **With Intelephense**: Compatibility mode activated automatically
+- **Without Intelephense**: Installation suggestion for better experience
 
-## Installation Recommandée
+## Recommended Installation
 
-### 1. Installer Intelephense
+### 1. Install Intelephense
 
 ```bash
-# Via la palette de commandes VS Code
+# Via VS Code command palette
 Ctrl+Shift+P > "Extensions: Install Extensions" > "Intelephense"
 ```
 
-Ou installer directement :
-[Intelephense sur le Marketplace](https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client)
+Or install directly:
+[Intelephense on Marketplace](https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client)
 
-### 2. Installer l'extension Ephect
+### 2. Install Ephect Extension
 
-Installer l'extension Ephect Syntax Highlighting (ce package)
+Install the Ephect Syntax Highlighting extension (this package)
 
-### 3. Configuration (Optionnelle)
+### 3. Configuration (Optional)
 
-Dans vos paramètres VS Code (`settings.json`) :
+In your VS Code settings (`settings.json`):
 
 ```json
 {
-  // Configuration Intelephense pour Ephect
+  // Intelephense configuration for Ephect
   "intelephense.files.associations": ["*.php"],
 
-  // Désactiver les fonctionnalités PHP de base de VS Code (recommandé par Intelephense)
+  // Disable VS Code basic PHP features (recommended by Intelephense)
   "php.suggest.basic": false,
   "php.validate.enable": false,
 
-  // Configuration Ephect
+  // Ephect configuration
   "ephect.enableIntelephenseCompatibility": true
 }
 ```
 
-## Fonctionnalités Combinées
+## Combined Features
 
-Avec les deux extensions actives, vous bénéficiez de :
+With both extensions active, you benefit from:
 
-### IntelliSense PHP Complet (Intelephense)
+### Complete PHP IntelliSense (Intelephense)
 
-- Auto-complétion des classes, méthodes, propriétés
-- Documentation contextuelle
-- Analyse statique et détection d'erreurs
-- Refactoring intelligent
+- Auto-completion for classes, methods, properties
+- Contextual documentation
+- Static analysis and error detection
+- Intelligent refactoring
 
-### Coloration Syntaxique Ephect (Cette extension)
+### Ephect Syntax Highlighting (This extension)
 
-- Directives de contrôle colorées
-- Variables Ephect distinctes
-- HTML dans HEREDOC avec coloration complète
-- Interpolation de variables mise en évidence
+- Colored control directives
+- Distinct Ephect variables
+- HTML in HEREDOC with complete highlighting
+- Variable interpolation highlighting
 
 ## Exemple de Code
 
@@ -104,11 +104,11 @@ function UserList($props): string // ← Type hints reconnus par Intelephense
     <div class="user-list">             // ← Coloration HTML Ephect
         @for %users as %user do         // ← Directive Ephect colorée
             <div class="user-card">
-                <h3>{{ user->name }}</h3>    // ← Interpolation Ephect
-                @if %user->isActive do       // ← Condition Ephect colorée
-                    <span class="active">Actif</span>
+                <h3>{{ user->name }}</h3>    // ← Ephect interpolation
+                @if %user->isActive do       // ← Colored Ephect condition
+                    <span class="active">Active</span>
                 @else
-                    <span class="inactive">Inactif</span>
+                    <span class="inactive">Inactive</span>
                 @done
             </div>
         @done
@@ -117,29 +117,29 @@ function UserList($props): string // ← Type hints reconnus par Intelephense
 }
 ```
 
-## Résolution des Conflits
+## Troubleshooting
 
-### Problème : Pas de coloration Ephect
+### Issue: No Ephect highlighting
 
-**Solution** : Vérifier que le fichier est reconnu comme PHP :
+**Solution**: Verify the file is recognized as PHP:
 
-- Clic droit sur l'onglet du fichier > "Change Language Mode" > "PHP"
-- Ou ajouter l'extension dans `files.associations`
+- Right-click on file tab > "Change Language Mode" > "PHP"
+- Or add the extension in `files.associations`
 
-### Problème : IntelliSense ne fonctionne pas
+### Issue: IntelliSense not working
 
-**Solution** : Vérifier la configuration Intelephense :
+**Solution**: Check Intelephense configuration:
 
 1. `Ctrl+Shift+P` > "Intelephense: Restart"
-2. Vérifier que PHP Language Features de base est désactivé
-3. Vérifier les paramètres `intelephense.*`
+2. Verify basic PHP Language Features is disabled
+3. Check `intelephense.*` settings
 
-### Problème : Erreurs de syntaxe sur les directives Ephect
+### Issue: Syntax errors on Ephect directives
 
-C'est **normal** ! Intelephense analyse le PHP standard et ne comprend pas les directives Ephect
-comme `@for`, `@if`. Ces "erreurs" sont attendues et n'affectent pas la fonctionnalité.
+This is **normal**! Intelephense analyzes standard PHP and doesn't understand Ephect directives like
+`@for`, `@if`. These "errors" are expected and don't affect functionality.
 
-Pour masquer ces erreurs spécifiques :
+To hide these specific errors:
 
 ```json
 {
@@ -151,14 +151,14 @@ Pour masquer ces erreurs spécifiques :
 
 ## Support
 
-- **Issues Intelephense** :
+- **Intelephense Issues**:
   [GitHub Intelephense](https://github.com/bmewburn/vscode-intelephense/issues)
-- **Issues Ephect Syntax** :
+- **Ephect Syntax Issues**:
   [GitHub Ephect Extension](https://github.com/ephect-io/vscode-extension/issues)
 
-## Licence
+## License
 
-Les deux extensions sont compatibles au niveau des licences :
+Both extensions are license-compatible:
 
-- **Intelephense** : Gratuit avec fonctionnalités premium payantes
-- **Ephect Syntax Highlighting** : MIT License (entièrement gratuit)
+- **Intelephense**: Free with paid premium features
+- **Ephect Syntax Highlighting**: MIT License (completely free)

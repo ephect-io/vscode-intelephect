@@ -1,39 +1,39 @@
 ## Description
 
-Décrivez brièvement les changements apportés dans cette PR.
+Briefly describe the changes made in this PR.
 
-## Type de changement
+## Type of change
 
-- [ ] 🐛 Correction de bug (fix)
-- [ ] ✨ Nouvelle fonctionnalité (feat)
-- [ ] 💄 Changements de style/formatage (style)
+- [ ] 🐛 Bug fix (fix)
+- [ ] ✨ New feature (feat)
+- [ ] 💄 Style/formatting changes (style)
 - [ ] ♻️ Refactoring (refactor)
-- [ ] ⚡ Amélioration des performances (perf)
+- [ ] ⚡ Performance improvements (perf)
 - [ ] 📚 Documentation (docs)
 - [ ] 🧪 Tests (test)
-- [ ] 🔧 Maintenance/outils (chore)
+- [ ] 🔧 Maintenance/tools (chore)
 
 ## Checklist
 
-- [ ] Les messages de commit suivent le format [Conventional Commits](./CONVENTIONAL_COMMITS.md)
-- [ ] Le code a été formaté avec Prettier (`npm run format`)
-- [ ] Le code passe les vérifications ESLint (`npm run lint`)
-- [ ] Le code compile sans erreur (`npm run compile`)
-- [ ] La documentation a été mise à jour si nécessaire
-- [ ] Les exemples ont été testés si applicable
+- [ ] Commit messages follow [Conventional Commits](./CONVENTIONAL_COMMITS.md) format
+- [ ] Code has been formatted with Prettier (`npm run format`)
+- [ ] Code passes ESLint checks (`npm run lint`)
+- [ ] Code compiles without errors (`npm run compile`)
+- [ ] Documentation has been updated if necessary
+- [ ] Examples have been tested if applicable
 
-## Tests
+## Testing
 
-Décrivez comment tester ces changements :
+Describe how to test these changes:
 
-- [ ] Tests manuels effectués
-- [ ] Extension testée avec Intelephense
-- [ ] Exemples de code Ephect testés
+- [ ] Manual tests performed
+- [ ] Extension tested with Intelephense
+- [ ] Ephect code examples tested
 
-## Captures d'écran (si applicable)
+## Screenshots (if applicable)
 
-Ajoutez des captures d'écran pour montrer les changements visuels.
+Add screenshots to show visual changes.
 
-## Notes additionnelles
+## Additional notes
 
-Ajoutez toute information supplémentaire qui pourrait être utile aux reviewers.
+Add any additional information that might be useful for reviewers.

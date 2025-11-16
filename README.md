@@ -1,38 +1,38 @@
 # Ephect Syntax Highlighting Extension
 
-Extension VS Code pour la coloration syntaxique des templates Ephect Framework avec support pour
-HTML HEREDOC et syntaxe PHP simplifiée. **Compatible avec Intelephense** pour une expérience de
-développement PHP complète.
+VS Code extension for syntax highlighting of Ephect Framework templates with support for HTML
+HEREDOC and simplified PHP syntax. **Compatible with Intelephense** for a complete PHP development
+experience.
 
 ## Description
 
-Cette extension fournit une coloration syntaxique avancée pour les fichiers PHP utilisant le
-framework Ephect, avec un support spécial pour :
+This extension provides advanced syntax highlighting for PHP files using the Ephect framework, with
+special support for:
 
-- **Blocs HEREDOC HTML** : Coloration HTML à l'intérieur des blocs `<<< HTML ... HTML`
-- **Syntaxe PHP simplifiée** : Directives Ephect précédées de `@` (`@for`, `@if`, `@while`,
+- **HTML HEREDOC blocks**: HTML highlighting inside `<<< HTML ... HTML` blocks
+- **Simplified PHP syntax**: Ephect directives prefixed with `@` (`@for`, `@if`, `@while`,
   `@elseif`, `@op`, `@do`, `@done`, etc.)
-- **Interpolation de variables** : Variables Ephect (`%variable`) et interpolations `{{ variable }}`
+- **Variable interpolation**: Ephect variables (`%variable`) and interpolations `{{ variable }}`
 
-## Fonctionnalités
+## Features
 
-### 🎨 Coloration Syntaxique
+### 🎨 Syntax Highlighting
 
-- **PHP standard** : Mots-clés, variables, chaînes, commentaires
-- **HTML dans HEREDOC** : Balises, attributs, contenu
-- **Directives Ephect** : `@for`, `@while`, `@if`, `@elseif`, `@else`, `@op`, `@do`, `@done`
-- **Variables Ephect** : `%variable->property` avec coloration spéciale
-- **Interpolations** : `{{ variable->property }}` avec délimiteurs colorés
+- **Standard PHP**: Keywords, variables, strings, comments
+- **HTML in HEREDOC**: Tags, attributes, content
+- **Ephect directives**: `@for`, `@while`, `@if`, `@elseif`, `@else`, `@op`, `@do`, `@done`
+- **Ephect variables**: `%variable->property` with special highlighting
+- **Interpolations**: `{{ variable->property }}` with colored delimiters
 
-### 🌈 Thème de Couleur
+### 🌈 Color Theme
 
-L'extension inclut un thème sombre "Ephect Dark" optimisé pour la syntaxe Ephect :
+The extension includes a "Ephect Dark" theme optimized for Ephect syntax:
 
-- **Directives Ephect** : Violet (`#C586C0`) en gras
-- **Variables Ephect** : Or (`#FFD700`) en gras
-- **Interpolations** : Délimiteurs or en gras
-- **HTML** : Balises cyan (`#4EC9B0`), attributs bleu (`#9CDCFE`)
-- **PHP** : Mots-clés bleu (`#569CD6`), variables cyan (`#9CDCFE`)
+- **Ephect directives**: Purple (`#C586C0`) in bold
+- **Ephect variables**: Gold (`#FFD700`) in bold
+- **Interpolations**: Gold delimiters in bold
+- **HTML**: Cyan tags (`#4EC9B0`), blue attributes (`#9CDCFE`)
+- **PHP**: Blue keywords (`#569CD6`), cyan variables (`#9CDCFE`)
 
 ## Exemple de Code Ephect
 
@@ -76,8 +76,8 @@ function TableOfResources($props): string
     <table>
         <thead>
             <tr>
-                <th><span class="emoji">🧩</span> Catégorie</th>
-                <th><span class="emoji">🌐</span> Ressource</th>
+                <th><span class="emoji">🧩</span> Category</th>
+                <th><span class="emoji">🌐</span> Resource</th>
                 <th><span class="emoji">📝</span> Description</th>
             </tr>
         </thead>
@@ -101,62 +101,61 @@ function TableOfResources($props): string
 }
 ```
 
-## 🤝 Compatibilité Intelephense
+## 🤝 Intelephense Compatibility
 
-Cette extension est **entièrement compatible** avec
+This extension is **fully compatible** with
 [Intelephense](https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client),
-le serveur de langage PHP le plus populaire :
+the most popular PHP language server:
 
-✅ **Toutes les fonctionnalités Intelephense préservées** (IntelliSense, diagnostics, navigation)  
-✅ **Coloration syntaxique Ephect ajoutée** par injection de grammaire  
-✅ **Détection automatique** et mode compatibilité
+✅ **All Intelephense features preserved** (IntelliSense, diagnostics, navigation)  
+✅ **Ephect syntax highlighting added** via grammar injection  
+✅ **Automatic detection** and compatibility mode
 
-> 💡 **Recommandé** : Installer Intelephense + cette extension pour la meilleure expérience de
-> développement PHP/Ephect
+> 💡 **Recommended**: Install Intelephense + this extension for the best PHP/Ephect development
+> experience
 
-📖 [Guide détaillé de compatibilité](./INTELEPHENSE_COMPATIBILITY.md)
+📖 [Detailed compatibility guide](./INTELEPHENSE_COMPATIBILITY.md)
 
 ## Installation
 
-### Recommandée (avec Intelephense)
+### Recommended (with Intelephense)
 
-1. **Installer Intelephense** :
+1. **Install Intelephense**:
 
    ```
    Ctrl+Shift+P > Extensions: Install Extensions > "Intelephense"
    ```
 
-2. **Installer cette extension** (voir section suivante)
+2. **Install this extension** (see next section)
 
-### Depuis VSIX (Développement)
+### From VSIX (Development)
 
-1. Compilez l'extension :
+1. Compile the extension:
 
    ```bash
    npm install
    npm run compile
    ```
 
-2. Packagez l'extension :
+2. Package the extension:
 
    ```bash
    npm install -g vsce
    vsce package
    ```
 
-3. Installez le fichier `.vsix` généré dans VS Code :
-   - Ouvrez VS Code
-   - Allez dans Extensions (`Ctrl+Shift+X`)
-   - Cliquez sur `...` > `Install from VSIX...`
-   - Sélectionnez le fichier `.vsix`
+3. Install the generated `.vsix` file in VS Code:
+   - Open VS Code
+   - Go to Extensions (`Ctrl+Shift+X`)
+   - Click `...` > `Install from VSIX...`
+   - Select the `.vsix` file
 
 ### Configuration
 
-L'extension s'active automatiquement pour les fichiers `.php` et s'injecte dans la grammaire PHP
-existante :
+The extension automatically activates for `.php` files and injects into the existing PHP grammar:
 
-1. **Sélectionnez le thème** : `Ctrl+Shift+P` → "Preferences: Color Theme" → "Ephect Dark"
-2. **Configuration Intelephense** (optionnelle) :
+1. **Select the theme**: `Ctrl+Shift+P` → "Preferences: Color Theme" → "Ephect Dark"
+2. **Intelephense configuration** (optional):
    ```json
    {
      "ephect.enableIntelephenseCompatibility": true,
@@ -165,48 +164,48 @@ existante :
    }
    ```
 
-## Syntaxe Supportée
+## Supported Syntax
 
-### Directives Ephect
+### Ephect Directives
 
 ```php
 @for %items as %item do
-    // Contenu de la boucle
+    // Loop content
 @done
 
 @while %condition do
-    // Boucle while
+    // While loop
 @done
 
 @if %condition do
-    // Contenu conditionnel
+    // Conditional content
 @elseif %otherCondition do
-    // Autre condition
+    // Alternative condition
 @else
-    // Contenu alternatif
+    // Alternative content
 @done
 
 @do
-    // Bloc do simple
+    // Simple do block
 @done
 
-@op $variable = someFunction();  // Code PHP sur une ligne
+@op $variable = someFunction();  // PHP code on one line
 ```
 
-### Variables et Interpolation
+### Variables and Interpolation
 
 ```php
-// Variables Ephect
+// Ephect variables
 %variable
 %object->property
 %array->item->subproperty
 
-// Interpolation dans HTML
+// Interpolation in HTML
 {{ variable->property }}
 {{ object->method() }}
 ```
 
-### HEREDOC HTML
+### HTML HEREDOC
 
 ```php
 return (<<< HTML
@@ -219,95 +218,95 @@ return (<<< HTML
 HTML);
 ```
 
-## Développement
+## Development
 
-### Standards de Commits
+### Commit Standards
 
-Ce projet utilise [Conventional Commits](./CONVENTIONAL_COMMITS.md) avec validation automatique :
+This project uses [Conventional Commits](./CONVENTIONAL_COMMITS.md) with automatic validation:
 
 ```bash
-# Installation des hooks Git
+# Install Git hooks
 npm install && npm run prepare
 
-# Commit assisté (recommandé)
+# Assisted commit (recommended)
 npm run commit
 
-# Validation manuelle d'un message
+# Manual message validation
 echo "feat: add new feature" | npx commitlint
 
-# Formatage du code
+# Code formatting
 npm run format
 ```
 
-**Format obligatoire** : `type(scope): description`
+**Required format**: `type(scope): description`
 
-Exemples valides :
+Valid examples:
 
 - `feat: add @while directive support`
 - `fix(theme): improve color contrast`
 - `docs: update installation guide`
 
-### Structure du Projet
+### Project Structure
 
 ```
-├── package.json              # Configuration de l'extension
-├── language-configuration.json # Configuration du langage
+├── package.json              # Extension configuration
+├── language-configuration.json # Language configuration
 ├── src/
-│   └── extension.ts          # Code principal TypeScript
+│   └── extension.ts          # Main TypeScript code
 ├── syntaxes/
-│   └── ephect-php.tmLanguage.json # Grammaire Textmate
+│   └── ephect-php.tmLanguage.json # Textmate grammar
 └── themes/
-    └── ephect-dark-color-theme.json # Thème de couleur
+    └── ephect-dark-color-theme.json # Color theme
 ```
 
-### Scripts de Build
+### Build Scripts
 
 ```bash
-# Installation des dépendances et hooks Git
+# Install dependencies and Git hooks
 npm install
 
-# Développement
-npm run compile          # Compilation TypeScript
-npm run watch           # Compilation en mode watch
-npm run lint            # Vérification ESLint
-npm run format          # Formatage avec Prettier
+# Development
+npm run compile          # TypeScript compilation
+npm run watch           # Watch mode compilation
+npm run lint            # ESLint verification
+npm run format          # Prettier formatting
 
 # Commits
-npm run commit          # Commit assisté avec Commitizen
-npm run changelog       # Génération du changelog
-npm run release         # Release automatique avec standard-version
+npm run commit          # Assisted commit with Commitizen
+npm run changelog       # Changelog generation
+npm run release         # Automatic release with standard-version
 
-# Package pour distribution
+# Package for distribution
 vsce package
 ```
 
-### Contribuer
+### Contributing
 
-1. **Fork** le projet
-2. **Cloner** et installer : `git clone ... && npm install`
-3. **Créer une branche** : `git checkout -b feat/ma-fonctionnalite`
-4. **Développer** en suivant les standards du projet
-5. **Committer** : `npm run commit` (format Conventional Commits)
-6. **Pousser** : `git push origin feat/ma-fonctionnalite`
-7. **Ouvrir une Pull Request** avec le template fourni
+1. **Fork** the project
+2. **Clone** and install: `git clone ... && npm install`
+3. **Create a branch**: `git checkout -b feat/my-feature`
+4. **Develop** following project standards
+5. **Commit**: `npm run commit` (Conventional Commits format)
+6. **Push**: `git push origin feat/my-feature`
+7. **Open a Pull Request** with the provided template
 
-**🔗 Liens utiles** :
+**🔗 Useful links**:
 
-- [Standards de commits](./CONVENTIONAL_COMMITS.md)
-- [Guide de compatibilité Intelephense](./INTELEPHENSE_COMPATIBILITY.md)
+- [Commit standards](./CONVENTIONAL_COMMITS.md)
+- [Intelephense compatibility guide](./INTELEPHENSE_COMPATIBILITY.md)
 
-## Licence
+## License
 
-MIT License - voir le fichier [LICENSE](LICENSE) pour plus de détails.
+MIT License - see the [LICENSE](LICENSE) file for more details.
 
 ## Support
 
-Pour signaler des bugs ou demander des fonctionnalités :
+To report bugs or request features:
 
-- [Issues GitHub](https://github.com/ephect-io/vscode-extension/issues)
-- [Documentation Ephect](https://ephect.io)
+- [GitHub Issues](https://github.com/ephect-io/vscode-extension/issues)
+- [Ephect Documentation](https://ephect.io)
 
 ---
 
-**Note** : Cette extension est spécifiquement conçue pour le framework Ephect. Pour d'autres
-frameworks PHP, utilisez les extensions PHP standard de VS Code.
+**Note**: This extension is specifically designed for the Ephect framework. For other PHP
+frameworks, use the standard PHP extensions for VS Code.
