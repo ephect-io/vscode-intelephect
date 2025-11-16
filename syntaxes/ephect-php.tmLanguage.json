@@ -12,6 +12,12 @@
     "ephect-features": {
       "patterns": [
         {
+          "include": "#ephect-directives-standalone"
+        },
+        {
+          "include": "#ephect-variables-standalone"
+        },
+        {
           "include": "#heredoc-html"
         },
         {
@@ -199,11 +205,11 @@
       "patterns": [
         {
           "name": "variable.other.ephect",
-          "match": "(%[a-zA-Z_][a-zA-Z0-9_]*(?:->[a-zA-Z_][a-zA-Z0-9_]*)*)"
+          "match": "%[a-zA-Z_][a-zA-Z0-9_]*(?:->[a-zA-Z_][a-zA-Z0-9_]*|\\[[^\\]]*\\])*(?:->\\w+\\([^)]*\\))?"
         },
         {
           "name": "variable.other.php",
-          "match": "(\\$[a-zA-Z_][a-zA-Z0-9_]*)"
+          "match": "\\$[a-zA-Z_][a-zA-Z0-9_]*"
         }
       ]
     },
@@ -211,7 +217,7 @@
       "patterns": [
         {
           "name": "keyword.operator.comparison.php",
-          "match": "(!=|==|<=|>=|<|>)"
+          "match": "(!=|==|<=|>=|<|>|\\?\\?)"
         },
         {
           "name": "keyword.operator.logical.php",
@@ -219,7 +225,11 @@
         },
         {
           "name": "keyword.operator.assignment.php",
-          "match": "(=)"
+          "match": "(=|\\+=|\\-=|\\*=|\\/=|\\+\\+|\\-\\-)"
+        },
+        {
+          "name": "keyword.operator.arithmetic.php",
+          "match": "(\\+|\\-|\\*|\\/|%)"
         }
       ]
     },
@@ -284,6 +294,193 @@
               "name": "string.quoted.html"
             }
           }
+        }
+      ]
+    },
+    "ephect-directives-standalone": {
+      "patterns": [
+        {
+          "name": "meta.ephect.directive.for.standalone",
+          "match": "(@for)\\s+(%[a-zA-Z_][a-zA-Z0-9_]*(?:->[a-zA-Z_][a-zA-Z0-9_]*)*)\\s+(as)\\s+(%[a-zA-Z_][a-zA-Z0-9_]*(?:->[a-zA-Z_][a-zA-Z0-9_]*)*)\\s+(do)",
+          "captures": {
+            "1": {
+              "name": "keyword.control.ephect"
+            },
+            "2": {
+              "name": "variable.other.ephect"
+            },
+            "3": {
+              "name": "keyword.operator.ephect"
+            },
+            "4": {
+              "name": "variable.other.ephect"
+            },
+            "5": {
+              "name": "keyword.control.ephect"
+            }
+          }
+        },
+        {
+          "name": "meta.ephect.directive.while.standalone",
+          "match": "(@while)\\s+(.*?)\\s+(do)",
+          "captures": {
+            "1": {
+              "name": "keyword.control.ephect"
+            },
+            "2": {
+              "patterns": [
+                {
+                  "include": "#ephect-variables"
+                },
+                {
+                  "include": "#php-operators"
+                },
+                {
+                  "include": "#php-constants"
+                }
+              ]
+            },
+            "3": {
+              "name": "keyword.control.ephect"
+            }
+          }
+        },
+        {
+          "name": "meta.ephect.directive.if.standalone",
+          "match": "(@if)\\s+(.*?)\\s+(do)",
+          "captures": {
+            "1": {
+              "name": "keyword.control.ephect"
+            },
+            "2": {
+              "patterns": [
+                {
+                  "include": "#ephect-variables"
+                },
+                {
+                  "include": "#php-operators"
+                },
+                {
+                  "include": "#php-constants"
+                }
+              ]
+            },
+            "3": {
+              "name": "keyword.control.ephect"
+            }
+          }
+        },
+        {
+          "name": "meta.ephect.directive.elseif.standalone",
+          "match": "(@elseif)\\s+(.*?)\\s+(do)",
+          "captures": {
+            "1": {
+              "name": "keyword.control.ephect"
+            },
+            "2": {
+              "patterns": [
+                {
+                  "include": "#ephect-variables"
+                },
+                {
+                  "include": "#php-operators"
+                },
+                {
+                  "include": "#php-constants"
+                }
+              ]
+            },
+            "3": {
+              "name": "keyword.control.ephect"
+            }
+          }
+        },
+        {
+          "name": "meta.ephect.directive.op.standalone",
+          "begin": "(@op)\\s+",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.control.ephect"
+            }
+          },
+          "end": "(;)|$",
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.terminator.statement.php"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#ephect-variables"
+            },
+            {
+              "include": "#php-operators"
+            },
+            {
+              "include": "#php-constants"
+            },
+            {
+              "name": "punctuation.definition.array.begin.php",
+              "match": "\\["
+            },
+            {
+              "name": "punctuation.definition.array.end.php",
+              "match": "\\]"
+            },
+            {
+              "name": "punctuation.separator.array.php",
+              "match": ","
+            }
+          ]
+        },
+        {
+          "name": "keyword.control.ephect",
+          "match": "(@done|@else|@do)\\b"
+        }
+      ]
+    },
+    "ephect-variables-standalone": {
+      "patterns": [
+        {
+          "name": "variable.other.ephect",
+          "match": "%[a-zA-Z_][a-zA-Z0-9_]*(?:->[a-zA-Z_][a-zA-Z0-9_]*|\\[[^\\]]*\\])*(?:->\\w+\\([^)]*\\))?"
+        }
+      ]
+    },
+    "php-constants": {
+      "patterns": [
+        {
+          "name": "string.quoted.single.php",
+          "match": "'[^']*'"
+        },
+        {
+          "name": "string.quoted.double.php",
+          "match": "\"[^\"]*\""
+        },
+        {
+          "name": "constant.numeric.php",
+          "match": "\\b\\d+(?:\\.\\d+)?\\b"
+        },
+        {
+          "name": "constant.language.php",
+          "match": "\\b(true|false|null)\\b"
+        },
+        {
+          "name": "support.function.php",
+          "match": "\\b(count|min|max|str_replace|str_contains|number_format|date|ceil|strtolower)\\s*(?=\\()"
+        }
+      ]
+    },
+    "php-standard": {
+      "patterns": [
+        {
+          "include": "#ephect-variables"
+        },
+        {
+          "include": "#php-operators"
+        },
+        {
+          "include": "#php-constants"
         }
       ]
     },
