@@ -1,0 +1,69 @@
+{
+  "name": "ephect-syntax-highlighting",
+  "displayName": "Ephect Syntax Highlighting",
+  "description": "Syntax highlighting for Ephect framework templates with HTML HEREDOC and simplified PHP syntax",
+  "version": "0.1.0",
+  "publisher": "ephect-io",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Themes"
+  ],
+  "keywords": [
+    "ephect",
+    "php",
+    "html",
+    "heredoc",
+    "syntax",
+    "highlighting",
+    "template"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "ephect-php",
+        "aliases": [
+          "Ephect PHP",
+          "ephect-php"
+        ],
+        "extensions": [
+          ".php"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "ephect-php",
+        "scopeName": "source.php.ephect",
+        "path": "./syntaxes/ephect-php.tmLanguage.json"
+      }
+    ],
+    "themes": [
+      {
+        "label": "Ephect Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/ephect-dark-color-theme.json"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@types/node": "16.x",
+    "typescript": "^4.9.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ephect-io/vscode-extension.git"
+  },
+  "license": "MIT"
+}
