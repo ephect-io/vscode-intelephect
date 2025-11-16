@@ -1,11 +1,11 @@
 {
-  "name": "ephect-syntax-highlighting",
+  "name": "vscode-intelephect",
   "displayName": "Ephect Syntax Highlighting",
   "description": "Syntax highlighting for Ephect framework templates with HTML HEREDOC and simplified PHP syntax",
   "version": "0.2.0",
   "publisher": "ephect-io",
   "engines": {
-    "vscode": "^1.74.0"
+    "vscode": "^1.70.0"
   },
   "categories": [
     "Programming Languages",
@@ -69,21 +69,21 @@
     "test:commit": "commitlint --from HEAD~1 --to HEAD --verbose"
   },
   "devDependencies": {
-    "@commitlint/cli": "^18.4.3",
-    "@commitlint/config-conventional": "^18.4.3",
-    "@types/node": "16.x",
-    "@types/vscode": "^1.74.0",
-    "@typescript-eslint/eslint-plugin": "^6.21.0",
-    "@typescript-eslint/parser": "^6.21.0",
-    "commitizen": "^4.3.0",
-    "conventional-changelog-cli": "^4.1.0",
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "@types/node": "^24.10.1",
+    "@types/vscode": "^1.70.0",
+    "@typescript-eslint/eslint-plugin": "^8.46.4",
+    "@typescript-eslint/parser": "^8.46.4",
+    "commitizen": "^4.3.1",
+    "conventional-changelog-cli": "^5.0.0",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^8.54.0",
-    "husky": "^8.0.3",
-    "lint-staged": "^15.1.0",
-    "prettier": "^3.1.0",
+    "eslint": "^9.39.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.6",
+    "prettier": "^3.6.2",
     "standard-version": "^9.5.0",
-    "typescript": "^4.9.4"
+    "typescript": "^5.9.3"
   },
   "config": {
     "commitizen": {
@@ -92,7 +92,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ephect-io/vscode-extension.git"
+    "url": "https://github.com/ephect-io/vscode-intelephect.git"
+  },
+  "homepage": "https://github.com/ephect-io/vscode-intelephect#readme",
+  "bugs": {
+    "url": "https://github.com/ephect-io/vscode-intelephect/issues"
+  },
+  "galleryBanner": {
+    "color": "#1e1e1e",
+    "theme": "dark"
   },
   "license": "MIT"
 }
