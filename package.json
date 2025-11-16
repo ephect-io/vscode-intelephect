@@ -2,7 +2,7 @@
   "name": "vscode-intelephect",
   "displayName": "Ephect Syntax Highlighting",
   "description": "Syntax highlighting for Ephect framework templates with HTML HEREDOC and simplified PHP syntax",
-  "version": "0.2.11",
+  "version": "0.2.12",
   "publisher": "ephect-io",
   "engines": {
     "vscode": "^1.70.0"
@@ -66,7 +66,13 @@
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "release": "standard-version",
     "prepare": "husky install",
-    "test:commit": "commitlint --from HEAD~1 --to HEAD --verbose"
+    "test:commit": "commitlint --from HEAD~1 --to HEAD --verbose",
+    "package": "vsce package",
+    "publish": "vsce publish",
+    "publish:patch": "vsce publish patch",
+    "publish:minor": "vsce publish minor",
+    "publish:major": "vsce publish major",
+    "publish:token": "vsce publish --pat $VSCE_PAT"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",

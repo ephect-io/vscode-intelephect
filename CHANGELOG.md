@@ -1,3 +1,32 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See
+[standard-version](https://github.com/conventional-changelog/standard-version) for commit
+guidelines.
+
+### 0.2.12 (2025-11-16)
+
+### ✨ Nouvelles fonctionnalités
+
+- **config:** add conventional commit rules with validation
+  ([e382eb1](https://github.com/ephect-io/vscode-intelephect/commit/e382eb1468e0af221072e214d5a55a41655baa06))
+- make it bmewburn/vscode-intelephense compatible
+  ([02f67aa](https://github.com/ephect-io/vscode-intelephect/commit/02f67aa606bc88dd85271a7685e1e0f309744f9c))
+
+### 📚 Documentation
+
+- update the version
+  ([3913ae0](https://github.com/ephect-io/vscode-intelephect/commit/3913ae04ad83bbe8d570b19b1ae44e7ca945191d))
+
+### 🐛 Corrections de bugs
+
+- **docs:** turn from french to english
+  ([f0f5528](https://github.com/ephect-io/vscode-intelephect/commit/f0f5528bea252a071dc45be1aad7533ebc3938a8))
+- should fix the coloration of standard php code
+  ([d8dae2f](https://github.com/ephect-io/vscode-intelephect/commit/d8dae2f9e91f9da66ab31f1f80897a8d9ce0df60))
+- should highlight all php text
+  ([295aebc](https://github.com/ephect-io/vscode-intelephect/commit/295aebca433cdce7b07b67a900d7a8228a7453f1))
+
 ## [0.2.0] - 2024-11-16
 
 ### 🔧 Development Standards
