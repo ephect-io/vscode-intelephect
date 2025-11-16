@@ -1,0 +1,20 @@
+# Logs
+*.log
+
+# Dependencies
+node_modules/
+
+# Build outputs
+out/
+dist/
+*.vsix
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/settings.json
+
+# Prettier cache
+.prettierignore
