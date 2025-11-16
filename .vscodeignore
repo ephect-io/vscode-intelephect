@@ -14,3 +14,4 @@ node_modules/
 commitlint.config.js
 .husky/
 *.vsix
+.env
