@@ -12,12 +12,6 @@
     "ephect-specific-only": {
       "patterns": [
         {
-          "include": "#ephect-directives-only"
-        },
-        {
-          "include": "#ephect-variables-only"
-        },
-        {
           "include": "#heredoc-html"
         }
       ]
