@@ -47,6 +47,46 @@
       }
     },
     {
+      "name": "Ephect Conditional Keywords",
+      "scope": "keyword.control.ephect.conditional",
+      "settings": {
+        "foreground": "#C586C0",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Ephect Loop Keywords",
+      "scope": ["keyword.control.ephect.loop", "keyword.control.ephect.loop.end"],
+      "settings": {
+        "foreground": "#4FC1B5",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Ephect Block Markers",
+      "scope": "keyword.control.ephect.block",
+      "settings": {
+        "foreground": "#D7BA7D",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Ephect Do Keyword",
+      "scope": "keyword.control.ephect.do",
+      "settings": {
+        "foreground": "#CE9178",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Ephect Block End",
+      "scope": "keyword.control.ephect.end",
+      "settings": {
+        "foreground": "#FFD700",
+        "fontStyle": "bold"
+      }
+    },
+    {
       "name": "Operator, Misc",
       "scope": [
         "keyword.control",

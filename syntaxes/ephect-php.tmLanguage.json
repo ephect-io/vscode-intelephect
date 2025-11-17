@@ -137,6 +137,111 @@
     "ephect": {
       "patterns": [
         {
+          "match": "(?x)^\\s*(@if)\\b([^\\n]*?)\\b(do)\\b",
+          "captures": {
+            "1": {
+              "name": "keyword.control.ephect.conditional"
+            },
+            "2": {
+              "name": "meta.expression.conditional.ephect"
+            },
+            "3": {
+              "name": "keyword.control.ephect.block"
+            }
+          },
+          "name": "meta.ephect.if"
+        },
+        {
+          "match": "(?x)^\\s*(@elseif)\\b([^\\n]*?)\\b(do)\\b",
+          "captures": {
+            "1": {
+              "name": "keyword.control.ephect.conditional"
+            },
+            "2": {
+              "name": "meta.expression.conditional.ephect"
+            },
+            "3": {
+              "name": "keyword.control.ephect.block"
+            }
+          },
+          "name": "meta.ephect.elseif"
+        },
+        {
+          "match": "(?x)^\\s*(@while)\\b([^\\n]*?)\\b(do)\\b",
+          "captures": {
+            "1": {
+              "name": "keyword.control.ephect.loop"
+            },
+            "2": {
+              "name": "meta.expression.loop.ephect"
+            },
+            "3": {
+              "name": "keyword.control.ephect.block"
+            }
+          },
+          "name": "meta.ephect.while"
+        },
+        {
+          "match": "(?x)^\\s*(@for)\\b([^\\n]*?\\bas\\b[^\\n]*?)\\b(do)\\b",
+          "captures": {
+            "1": {
+              "name": "keyword.control.ephect.loop"
+            },
+            "2": {
+              "name": "meta.expression.loop.ephect"
+            },
+            "3": {
+              "name": "keyword.control.ephect.block"
+            }
+          },
+          "name": "meta.ephect.for-as"
+        },
+        {
+          "match": "(?x)^\\s*(@for)\\b((?![^\\n]*\\bas\\b)[^\\n]*?)\\b(do)\\b",
+          "captures": {
+            "1": {
+              "name": "keyword.control.ephect.loop"
+            },
+            "2": {
+              "name": "meta.expression.loop.ephect"
+            },
+            "3": {
+              "name": "keyword.control.ephect.block"
+            }
+          },
+          "name": "meta.ephect.for"
+        },
+        {
+          "match": "(?x)^\\s*(@do)\\b",
+          "captures": {
+            "1": {
+              "name": "keyword.control.ephect.do"
+            }
+          },
+          "name": "meta.ephect.do"
+        },
+        {
+          "match": "(?x)^\\s*(@while)\\b((?:(?!\\bdo\\b).)*?)$",
+          "captures": {
+            "1": {
+              "name": "keyword.control.ephect.loop.end"
+            },
+            "2": {
+              "name": "meta.expression.loop.ephect"
+            }
+          },
+          "name": "meta.ephect.do-while"
+        },
+        {
+          "match": "(?x)^\\s*(@done)\\b",
+          "captures": {
+            "1": {
+              "name": "keyword.control.ephect.end"
+            }
+          },
+          "name": "meta.ephect.done"
+        },
+        {
           "begin": "{{--",
           "beginCaptures": {
             "0": {

@@ -12,6 +12,12 @@ guidelines.
   ([ea1f9c0](https://github.com/ephect-io/vscode-intelephect/commit/ea1f9c0510017140fb378477fbf3092729d2432b))
 - repair the php and ephect directives
   ([586c198](https://github.com/ephect-io/vscode-intelephect/commit/586c19843a14ca60e2e7cdb1af67b11d2f2b26af))
+- **syntax:** réintroduire l'analyse des blocs `@if/@for/@while` avec `do` et `@done`
+
+### 🎨 Améliorations visuelles
+
+- **theme:** ajuster les couleurs et les scopes des directives Ephect (`@if`, `@for`, `@while`,
+  `@do`, `@done`)
 
 ### [0.2.18](https://github.com/ephect-io/vscode-intelephect/compare/v0.2.17...v0.2.18) (2025-11-17)
 
