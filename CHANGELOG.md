@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.2.17](https://github.com/ephect-io/vscode-intelephect/compare/v0.2.16...v0.2.17) (2025-11-17)
 
+### 🎨 Améliorations visuelles
+
+- **syntax:** restaurer la coloration PHP standard et détecter les HEREDOC `HTML` en ligne
 
 ### 🐛 Corrections de bugs
 
@@ -17,9 +20,6 @@ All notable changes to this project will be documented in this file. See [standa
 - **bug:** try to colorize arobase tags and liquid expressions like php expressions
   ([32aeba2](https://github.com/ephect-io/vscode-intelephect/commit/32aeba2026626674a7b27c626b9cf73ffdc26700))
 
-### 🎨 Améliorations visuelles
-
-- **syntax:** restaurer la coloration PHP standard et détecter les HEREDOC `HTML` en ligne
 
 ### 🧹 Maintenance
 

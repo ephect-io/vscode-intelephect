@@ -5,6 +5,9 @@
   "injectionSelector": "L:source.php -comment -string",
   "patterns": [
     {
+      "include": "source.php"
+    },
+    {
       "include": "#ephect-specific-only"
     }
   ],
@@ -20,7 +23,7 @@
       "patterns": [
         {
           "name": "string.quoted.heredoc.html.php",
-          "begin": "(<<<)\\s*(HTML)\\s*$",
+          "begin": "(<<<)\\s*(HTML)\\b",
           "beginCaptures": {
             "1": {
               "name": "keyword.operator.heredoc.php"
@@ -29,7 +32,7 @@
               "name": "keyword.operator.heredoc.php"
             }
           },
-          "end": "^\\s*(HTML)\\s*",
+          "end": "^\\s*(HTML)\\s*;?",
           "endCaptures": {
             "1": {
               "name": "keyword.operator.heredoc.php"
