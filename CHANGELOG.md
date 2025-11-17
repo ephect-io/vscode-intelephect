@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file. See
 [standard-version](https://github.com/conventional-changelog/standard-version) for commit
 guidelines.
 
+### [0.2.21](https://github.com/ephect-io/vscode-intelephect/compare/v0.2.20...v0.2.21) (2025-11-17)
+
+### 🐛 Corrections de bugs
+
+- remake example templates
+  ([c6b69bd](https://github.com/ephect-io/vscode-intelephect/commit/c6b69bd36904e472454569881b8ad90b84eeb81a))
+- reuse 0.2.18 syntax
+  ([bbad6af](https://github.com/ephect-io/vscode-intelephect/commit/bbad6afc95c5f96c010d3c6de0a74fb9e655fe71))
+
 ### [0.2.20](https://github.com/ephect-io/vscode-intelephect/compare/v0.2.19...v0.2.20) (2025-11-17)
 
 ### ✨ Nouvelles fonctionnalités
