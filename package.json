@@ -1,6 +1,6 @@
 {
   "name": "vscode-intelephect",
-  "displayName": "Ephect Syntax Highlighting",
+  "displayName": "Intelephect",
   "description": "Syntax highlighting for Ephect framework templates with HTML HEREDOC and simplified PHP syntax",
   "version": "0.2.21",
   "publisher": "ephect-io",
@@ -26,7 +26,7 @@
     "grammars": [
       {
         "language": "php",
-        "scopeName": "source.php.ephect",
+        "scopeName": "text.html.php.ephect",
         "path": "./syntaxes/ephect-php.tmLanguage.json",
         "injectTo": [
           "source.php"
@@ -35,7 +35,7 @@
     ],
     "configuration": {
       "type": "object",
-      "title": "Ephect Syntax Highlighting",
+      "title": "Intelephect",
       "properties": {
         "ephect.enableIntelephenseCompatibility": {
           "type": "boolean",
@@ -72,7 +72,8 @@
     "publish:patch": "vsce publish patch",
     "publish:minor": "vsce publish minor",
     "publish:major": "vsce publish major",
-    "publish:token": "vsce publish --pat $VSCE_PAT"
+    "publish:token": "vsce publish --pat $VSCE_PAT",
+    "push": "git push --follow-tags origin $GIT_BRANCH && npm run publish"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",
