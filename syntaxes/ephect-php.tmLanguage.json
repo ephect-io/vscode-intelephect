@@ -49,7 +49,10 @@
               "include": "#ephect-variable-interpolation"
             },
             {
-              "include": "#ephect-html-content"
+              "include": "#html-comment"
+            },
+            {
+              "include": "#ephect-html-tag"
             }
           ]
         }
@@ -159,19 +162,17 @@
         }
       ]
     },
-    "ephect-html-content": {
+    "html-comment": {
       "patterns": [
         {
-          "include": "#ephect-template-directives"
-        },
-        {
-          "include": "#ephect-variable-interpolation"
-        },
-        {
-          "include": "#ephect-html-tag"
-        },
-        {
-          "include": "text.html.basic"
+          "name": "comment.block.html",
+          "begin": "<!--",
+          "end": "-->",
+          "captures": {
+            "0": {
+              "name": "punctuation.definition.comment.html"
+            }
+          }
         }
       ]
     },
@@ -199,7 +200,7 @@
               "include": "#ephect-variable-interpolation"
             },
             {
-              "include": "text.html.basic#attribute"
+              "include": "#html-attribute"
             }
           ]
         },
@@ -220,6 +221,68 @@
               "name": "punctuation.definition.tag.end.html"
             }
           }
+        }
+      ]
+    },
+    "html-attribute": {
+      "patterns": [
+        {
+          "name": "meta.attribute.html",
+          "begin": "([a-zA-Z:][a-zA-Z0-9:_.-]*)\\s*(=)\\s*(\")",
+          "beginCaptures": {
+            "1": {
+              "name": "entity.other.attribute-name.html"
+            },
+            "2": {
+              "name": "punctuation.separator.key-value.html"
+            },
+            "3": {
+              "name": "punctuation.definition.string.begin.html"
+            }
+          },
+          "end": "\"",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.end.html"
+            }
+          },
+          "contentName": "string.quoted.double.html",
+          "patterns": [
+            {
+              "include": "#ephect-variable-interpolation"
+            }
+          ]
+        },
+        {
+          "name": "meta.attribute.html",
+          "begin": "([a-zA-Z:][a-zA-Z0-9:_.-]*)\\s*(=)\\s*(')",
+          "beginCaptures": {
+            "1": {
+              "name": "entity.other.attribute-name.html"
+            },
+            "2": {
+              "name": "punctuation.separator.key-value.html"
+            },
+            "3": {
+              "name": "punctuation.definition.string.begin.html"
+            }
+          },
+          "end": "'",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.end.html"
+            }
+          },
+          "contentName": "string.quoted.single.html",
+          "patterns": [
+            {
+              "include": "#ephect-variable-interpolation"
+            }
+          ]
+        },
+        {
+          "name": "entity.other.attribute-name.html",
+          "match": "[a-zA-Z:][a-zA-Z0-9:_.-]*"
         }
       ]
     },
