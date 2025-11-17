@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file. See
 [standard-version](https://github.com/conventional-changelog/standard-version) for commit
 guidelines.
 
+### [0.2.23](https://github.com/ephect-io/vscode-intelephect/compare/v0.2.22...v0.2.23) (2025-11-17)
+
+### 🐛 Corrections de bugs
+
+- try to fix ephect keywords syntax coloring
+  ([c43b50b](https://github.com/ephect-io/vscode-intelephect/commit/c43b50b649e0c3d624e96ed4db539a9012d0cce0))
+
 ### [0.2.22](https://github.com/ephect-io/vscode-intelephect/compare/v0.2.21...v0.2.22) (2025-11-17)
 
 ### 🐛 Corrections de bugs
