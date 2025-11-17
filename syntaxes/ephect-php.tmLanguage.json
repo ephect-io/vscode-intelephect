@@ -25,7 +25,7 @@
     "heredoc-html": {
       "patterns": [
         {
-          "name": "string.quoted.heredoc.html.php",
+          "name": "meta.embedded.block.ephect.heredoc",
           "begin": "(<<<)\\s*(HTML)\\b",
           "beginCaptures": {
             "1": {
@@ -58,15 +58,34 @@
     "ephect-template-directives": {
       "patterns": [
         {
-          "name": "keyword.control.php",
-          "match": "^\\s*@(?:for|while|if|elseif|else|do|done|op)\\b"
+          "name": "keyword.control.ephect",
+          "match": "^\\s*(@)(?:for|while|if|elseif|else|do|done)\\b",
+          "captures": {
+            "1": {
+              "name": "punctuation.definition.keyword.ephect"
+            }
+          }
         },
         {
-          "name": "variable.other.php",
-          "match": "%[a-zA-Z_][a-zA-Z0-9_]*(?:->[a-zA-Z_][a-zA-Z0-9_]*|\\[[^\\]]*\\])*(?:->\\w+\\([^)]*\\))?"
+          "name": "keyword.control.ephect.operator",
+          "match": "^\\s*(@op)\\b",
+          "captures": {
+            "1": {
+              "name": "punctuation.definition.keyword.ephect"
+            }
+          }
         },
         {
-          "name": "keyword.operator.word.php",
+          "name": "variable.other.ephect",
+          "match": "(%)[a-zA-Z_][a-zA-Z0-9_]*(?:(?:->|\\.|::)[a-zA-Z_][a-zA-Z0-9_]*|\\[[^\\]]*\\])*",
+          "captures": {
+            "1": {
+              "name": "punctuation.definition.variable.ephect"
+            }
+          }
+        },
+        {
+          "name": "keyword.operator.word.ephect",
           "match": "\\b(?:as|do)\\b"
         }
       ]
@@ -74,17 +93,17 @@
     "ephect-variable-interpolation": {
       "patterns": [
         {
-          "name": "meta.interpolation.expression.php",
-          "begin": "{{\\s*",
+          "name": "meta.interpolation.ephect",
+          "begin": "({{)\\s*",
           "beginCaptures": {
-            "0": {
-              "name": "punctuation.definition.template-expression.begin.php"
+            "1": {
+              "name": "punctuation.definition.template-expression.begin.ephect"
             }
           },
-          "end": "\\s*}}",
+          "end": "\\s*(}})",
           "endCaptures": {
-            "0": {
-              "name": "punctuation.definition.template-expression.end.php"
+            "1": {
+              "name": "punctuation.definition.template-expression.end.ephect"
             }
           },
           "patterns": [
@@ -98,12 +117,22 @@
     "ephect-variables": {
       "patterns": [
         {
-          "name": "variable.other.php",
-          "match": "%[a-zA-Z_][a-zA-Z0-9_]*(?:->[a-zA-Z_][a-zA-Z0-9_]*|\\[[^\\]]*\\])*(?:->\\w+\\([^)]*\\))?"
+          "name": "variable.other.ephect",
+          "match": "(%)[a-zA-Z_][a-zA-Z0-9_]*(?:(?:->|\\.|::)[a-zA-Z_][a-zA-Z0-9_]*|\\[[^\\]]*\\])*(?:->\\w+\\([^)]*\\))?",
+          "captures": {
+            "1": {
+              "name": "punctuation.definition.variable.ephect"
+            }
+          }
         },
         {
           "name": "variable.other.php",
-          "match": "\\$[a-zA-Z_][a-zA-Z0-9_]*"
+          "match": "(\\$)[a-zA-Z_][a-zA-Z0-9_]*",
+          "captures": {
+            "1": {
+              "name": "punctuation.definition.variable.php"
+            }
+          }
         }
       ]
     },

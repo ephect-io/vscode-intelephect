@@ -87,6 +87,38 @@
       }
     },
     {
+      "name": "Ephect Operator Keywords",
+      "scope": ["keyword.control.ephect.operator", "keyword.operator.word.ephect"],
+      "settings": {
+        "foreground": "#C586C0",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Ephect Interpolation Delimiters",
+      "scope": [
+        "punctuation.definition.template-expression.begin.ephect",
+        "punctuation.definition.template-expression.end.ephect"
+      ],
+      "settings": {
+        "foreground": "#CE9178"
+      }
+    },
+    {
+      "name": "Ephect Variable Prefix",
+      "scope": "punctuation.definition.variable.ephect",
+      "settings": {
+        "foreground": "#9CDCFE"
+      }
+    },
+    {
+      "name": "Ephect Directive Symbol",
+      "scope": "punctuation.definition.keyword.ephect",
+      "settings": {
+        "foreground": "#C586C0"
+      }
+    },
+    {
       "name": "Operator, Misc",
       "scope": [
         "keyword.control",

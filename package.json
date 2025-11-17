@@ -23,7 +23,25 @@
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
+    "languages": [
+      {
+        "id": "phpx",
+        "aliases": [
+          "Ephect PHP",
+          "phpx"
+        ],
+        "extensions": [
+          ".phpx"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
     "grammars": [
+      {
+        "language": "phpx",
+        "scopeName": "text.html.php.ephect",
+        "path": "./syntaxes/ephect-php.tmLanguage.json"
+      },
       {
         "language": "php",
         "scopeName": "text.html.php.ephect",
@@ -50,7 +68,15 @@
         "uiTheme": "vs-dark",
         "path": "./themes/ephect-dark-color-theme.json"
       }
-    ]
+    ],
+    "configurationDefaults": {
+      "[phpx]": {
+        "editor.defaultFormatter": "ephect-io.vscode-intelephect"
+      },
+      "files.associations": {
+        "*.phpx": "phpx"
+      }
+    }
   },
   "extensionPack": [],
   "extensionDependencies": [],
