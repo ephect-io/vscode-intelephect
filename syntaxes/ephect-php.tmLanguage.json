@@ -1,11 +1,11 @@
 {
   "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
   "name": "Intelelphect",
-  "scopeName": "text.html.php.ephect",
+  "scopeName": "source.php.ephect",
   "fileTypes": ["phpx", "phtml", "html.php"],
   "foldingStartMarker": "(/\\*|\\{\\s*$|<<<HTML)",
   "foldingStopMarker": "(\\*/|^\\s*\\}|^HTML;)",
-  "injectionSelector": "L:source.php -comment -string",
+  "injectionSelector": "L:source.php",
   "patterns": [
     {
       "include": "source.php"
@@ -25,7 +25,7 @@
     "heredoc-html": {
       "patterns": [
         {
-          "name": "meta.embedded.block.ephect.heredoc",
+          "name": "meta.embedded.block.html.ephect",
           "begin": "(<<<)\\s*(HTML)\\b",
           "beginCaptures": {
             "1": {
@@ -49,7 +49,7 @@
               "include": "#ephect-variable-interpolation"
             },
             {
-              "include": "#html-content"
+              "include": "#ephect-html-content"
             }
           ]
         }
@@ -59,16 +59,7 @@
       "patterns": [
         {
           "name": "keyword.control.ephect",
-          "match": "^\\s*(@)(?:for|while|if|elseif|else|do|done)\\b",
-          "captures": {
-            "1": {
-              "name": "punctuation.definition.keyword.ephect"
-            }
-          }
-        },
-        {
-          "name": "keyword.control.ephect.operator",
-          "match": "^\\s*(@op)\\b",
+          "match": "(@)(?:for|endfor|while|if|endif|elseif|else|do|done|op)\\b",
           "captures": {
             "1": {
               "name": "punctuation.definition.keyword.ephect"
@@ -85,7 +76,7 @@
           }
         },
         {
-          "name": "keyword.operator.word.ephect",
+          "name": "keyword.control.ephect",
           "match": "\\b(?:as|do)\\b"
         }
       ]
@@ -111,6 +102,26 @@
               "include": "#ephect-variables"
             }
           ]
+        },
+        {
+          "name": "meta.interpolation.ephect.single",
+          "begin": "({)(?!{)\\s*",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.definition.template-expression.begin.ephect"
+            }
+          },
+          "end": "\\s*(})(?!})",
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.definition.template-expression.end.ephect"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#ephect-variables"
+            }
+          ]
         }
       ]
     },
@@ -118,10 +129,22 @@
       "patterns": [
         {
           "name": "variable.other.ephect",
-          "match": "(%)[a-zA-Z_][a-zA-Z0-9_]*(?:(?:->|\\.|::)[a-zA-Z_][a-zA-Z0-9_]*|\\[[^\\]]*\\])*(?:->\\w+\\([^)]*\\))?",
+          "match": "(%)[a-zA-Z_][a-zA-Z0-9_]*",
           "captures": {
             "1": {
               "name": "punctuation.definition.variable.ephect"
+            }
+          }
+        },
+        {
+          "name": "meta.property-access.ephect",
+          "match": "(->)([a-zA-Z_][a-zA-Z0-9_]*)",
+          "captures": {
+            "1": {
+              "name": "keyword.operator.class.php"
+            },
+            "2": {
+              "name": "variable.other.property.ephect"
             }
           }
         },
@@ -136,12 +159,27 @@
         }
       ]
     },
-
-    "html-content": {
+    "ephect-html-content": {
+      "patterns": [
+        {
+          "include": "#ephect-template-directives"
+        },
+        {
+          "include": "#ephect-variable-interpolation"
+        },
+        {
+          "include": "#ephect-html-tag"
+        },
+        {
+          "include": "text.html.basic"
+        }
+      ]
+    },
+    "ephect-html-tag": {
       "patterns": [
         {
           "name": "meta.tag.html",
-          "begin": "(<)([a-zA-Z][a-zA-Z0-9]*)",
+          "begin": "(<)([a-zA-Z][a-zA-Z0-9:-]*)",
           "beginCaptures": {
             "1": {
               "name": "punctuation.definition.tag.begin.html"
@@ -150,7 +188,7 @@
               "name": "entity.name.tag.html"
             }
           },
-          "end": "(>)",
+          "end": "(/?>)",
           "endCaptures": {
             "1": {
               "name": "punctuation.definition.tag.end.html"
@@ -158,13 +196,16 @@
           },
           "patterns": [
             {
-              "include": "#html-attributes"
+              "include": "#ephect-variable-interpolation"
+            },
+            {
+              "include": "text.html.basic#attribute"
             }
           ]
         },
         {
           "name": "meta.tag.html",
-          "begin": "(</)([a-zA-Z][a-zA-Z0-9]*)",
+          "begin": "(</)([a-zA-Z][a-zA-Z0-9:-]*)",
           "beginCaptures": {
             "1": {
               "name": "punctuation.definition.tag.begin.html"
@@ -182,50 +223,17 @@
         }
       ]
     },
-    "html-attributes": {
+    "ephect-in-html-attributes": {
       "patterns": [
         {
-          "name": "meta.attribute.html",
-          "match": "([a-zA-Z-]+)(=)(\"[^\"]*\"|'[^']*'|[^\\s>]+)",
-          "captures": {
-            "1": {
-              "name": "entity.other.attribute-name.html"
-            },
-            "2": {
-              "name": "punctuation.separator.key-value.html"
-            },
-            "3": {
-              "name": "string.quoted.html"
-            }
-          }
+          "include": "#ephect-variable-interpolation"
         }
       ]
-    },
-    "ephect-directives-only": {
+    }
+  },
+  "injections": {
+    "L:meta.embedded.block.html.ephect string.quoted": {
       "patterns": [
-        {
-          "name": "keyword.control.php",
-          "match": "@(?:for|while|if|elseif|else|do|done|op)\\b"
-        },
-        {
-          "name": "keyword.operator.word.php",
-          "match": "\\b(?:as)\\b(?=\\s+%)"
-        }
-      ]
-    },
-    "ephect-variables-only": {
-      "patterns": [
-        {
-          "name": "variable.other.php",
-          "match": "%[a-zA-Z_][a-zA-Z0-9_]*(?:->[a-zA-Z_][a-zA-Z0-9_]*|\\[[^\\]]*\\])*(?:->\\w+\\([^)]*\\))?"
-        }
-      ]
-    },
-    "ephect-template-syntax": {
-      "patterns": [
-        {
-          "include": "#ephect-template-directives"
-        },
         {
           "include": "#ephect-variable-interpolation"
         }

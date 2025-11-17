@@ -18,7 +18,7 @@
     },
     {
       "name": "Variables",
-      "scope": ["variable.other.php", "variable.other.ephect"],
+      "scope": ["variable.other.php"],
       "settings": {
         "foreground": "#9CDCFE"
       }
@@ -27,8 +27,15 @@
       "name": "Ephect Template Variables",
       "scope": "variable.other.ephect",
       "settings": {
-        "foreground": "#5f68df",
+        "foreground": "#9CDCFE",
         "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Ephect Object Properties",
+      "scope": "variable.other.property.ephect",
+      "settings": {
+        "foreground": "#9CDCFE"
       }
     },
     {
@@ -40,55 +47,17 @@
     },
     {
       "name": "Ephect Control Keywords",
-      "scope": "keyword.control.ephect",
-      "settings": {
-        "foreground": "#5d70d6",
-        "fontStyle": "bold"
-      }
-    },
-    {
-      "name": "Ephect Conditional Keywords",
-      "scope": "keyword.control.ephect.conditional",
-      "settings": {
-        "foreground": "#86bec5",
-        "fontStyle": "bold"
-      }
-    },
-    {
-      "name": "Ephect Loop Keywords",
-      "scope": ["keyword.control.ephect.loop", "keyword.control.ephect.loop.end"],
-      "settings": {
-        "foreground": "#4FC1B5",
-        "fontStyle": "bold"
-      }
-    },
-    {
-      "name": "Ephect Block Markers",
-      "scope": "keyword.control.ephect.block",
-      "settings": {
-        "foreground": "#D7BA7D",
-        "fontStyle": "bold"
-      }
-    },
-    {
-      "name": "Ephect Do Keyword",
-      "scope": "keyword.control.ephect.do",
-      "settings": {
-        "foreground": "#7888ce",
-        "fontStyle": "bold"
-      }
-    },
-    {
-      "name": "Ephect Block End",
-      "scope": "keyword.control.ephect.end",
-      "settings": {
-        "foreground": "#FFD700",
-        "fontStyle": "bold"
-      }
-    },
-    {
-      "name": "Ephect Operator Keywords",
-      "scope": ["keyword.control.ephect.operator", "keyword.operator.word.ephect"],
+      "scope": [
+        "keyword.control.ephect",
+        "keyword.control.ephect.conditional",
+        "keyword.control.ephect.loop",
+        "keyword.control.ephect.loop.end",
+        "keyword.control.ephect.block",
+        "keyword.control.ephect.do",
+        "keyword.control.ephect.end",
+        "keyword.control.ephect.operator",
+        "keyword.operator.word.ephect"
+      ],
       "settings": {
         "foreground": "#C586C0",
         "fontStyle": "bold"
@@ -101,7 +70,8 @@
         "punctuation.definition.template-expression.end.ephect"
       ],
       "settings": {
-        "foreground": "#CE9178"
+        "foreground": "#4EC9B0",
+        "fontStyle": "bold"
       }
     },
     {
@@ -210,7 +180,7 @@
     },
     {
       "name": "HEREDOC HTML Content",
-      "scope": "string.quoted.heredoc.html.php",
+      "scope": "meta.embedded.block.html.ephect",
       "settings": {
         "foreground": "#d4d4d4"
       }
@@ -222,7 +192,7 @@
         "punctuation.definition.template-expression.end.ephect"
       ],
       "settings": {
-        "foreground": "#FFD700",
+        "foreground": "#4EC9B0",
         "fontStyle": "bold"
       }
     },

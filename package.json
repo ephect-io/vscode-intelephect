@@ -39,12 +39,12 @@
     "grammars": [
       {
         "language": "phpx",
-        "scopeName": "text.html.php.ephect",
+        "scopeName": "source.php.ephect",
         "path": "./syntaxes/ephect-php.tmLanguage.json"
       },
       {
         "language": "php",
-        "scopeName": "text.html.php.ephect",
+        "scopeName": "source.php.ephect",
         "path": "./syntaxes/ephect-php.tmLanguage.json",
         "injectTo": [
           "source.php"
