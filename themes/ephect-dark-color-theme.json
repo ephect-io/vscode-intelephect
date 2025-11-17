@@ -27,7 +27,7 @@
       "name": "Ephect Template Variables",
       "scope": "variable.other.ephect",
       "settings": {
-        "foreground": "#FFD700",
+        "foreground": "#5f68df",
         "fontStyle": "bold"
       }
     },
@@ -42,7 +42,7 @@
       "name": "Ephect Control Keywords",
       "scope": "keyword.control.ephect",
       "settings": {
-        "foreground": "#C586C0",
+        "foreground": "#5d70d6",
         "fontStyle": "bold"
       }
     },
@@ -50,7 +50,7 @@
       "name": "Ephect Conditional Keywords",
       "scope": "keyword.control.ephect.conditional",
       "settings": {
-        "foreground": "#C586C0",
+        "foreground": "#86bec5",
         "fontStyle": "bold"
       }
     },
@@ -74,7 +74,7 @@
       "name": "Ephect Do Keyword",
       "scope": "keyword.control.ephect.do",
       "settings": {
-        "foreground": "#CE9178",
+        "foreground": "#7888ce",
         "fontStyle": "bold"
       }
     },
