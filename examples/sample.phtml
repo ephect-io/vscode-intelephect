@@ -1,0 +1,65 @@
+<?php
+
+namespace DevRez\Components\Emojis;
+
+use function Ephect\Hooks\useEffect;
+use function DevRez\Components\Emojis\Categories\Smileys;
+use function DevRez\Components\Emojis\Categories\PersonsAndBodies;
+use function DevRez\Components\Emojis\Categories\Nature;
+use function DevRez\Components\Emojis\Categories\Food;
+use function DevRez\Components\Emojis\Categories\Activities;
+use function DevRez\Components\Emojis\Categories\Voyages;
+use function DevRez\Components\Emojis\Categories\Objects;
+use function DevRez\Components\Emojis\Categories\Symbols;
+use function DevRez\Components\Emojis\Categories\Flags;
+
+function Palette($props): string
+{
+
+    useEffect(function($props, /* string */ $style, /* string */ $label, /* string */ $category) {
+        $style = $props->style ?? 'native';
+        $label = $props->label ?? 'Native Emojis';
+        $category = $props->category ?? '';
+    });
+
+    return (<<< HTML
+    <div class="emoji-palette">
+        <div class="label"> {{ label }} (affiche uniquement: {{ category }})</div>
+        @if %category == 'smileys' || %category == ''  do
+        <Smileys style="%style" />
+        @done
+
+        @if %category == 'persons' || %category == ''  do
+        <PersonsAndBodies style="%style" />
+        @done
+
+        @if %category == 'nature' || %category == ''  do
+        <Nature style="%style" />
+        @done
+
+        @if %category == 'food' || %category == ''  do
+        <Food style="%style" />
+        @done
+
+        @if %category == 'activities' || %category == ''  do
+        <Activities style="%style" />
+        @done
+
+        @if %category == 'voyages' || %category == ''  do
+        <Voyages style="%style" />
+        @done
+
+        @if %category == 'objects' || %category == ''  do
+        <Objects style="%style" />
+        @done
+
+        @if %category == 'symbols' || %category == ''  do
+        <Symbols style="%style" />
+        @done
+
+        @if %category == 'flags' || %category == ''  do
+        <Flags style="%style" />
+        @done
+    </div>
+    HTML);
+}

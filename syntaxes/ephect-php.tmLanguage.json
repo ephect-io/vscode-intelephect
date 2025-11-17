@@ -15,6 +15,12 @@
     "ephect-specific-only": {
       "patterns": [
         {
+          "include": "#ephect-directives-only"
+        },
+        {
+          "include": "#ephect-variables-only"
+        },
+        {
           "include": "#heredoc-html"
         }
       ]
@@ -64,7 +70,7 @@
         },
         {
           "name": "keyword.operator.word.php",
-          "match": "\\b(?:as|do)\\b"
+          "match": "\\b(?:as)\\b"
         }
       ]
     },
