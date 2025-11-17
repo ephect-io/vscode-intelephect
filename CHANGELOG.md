@@ -11,6 +11,10 @@ guidelines.
 - **bug:** try to colorize arobase tags and liquid expressions like php expressions
   ([32aeba2](https://github.com/ephect-io/vscode-intelephect/commit/32aeba2026626674a7b27c626b9cf73ffdc26700))
 
+### 🧹 Maintenance
+
+- supprimer les commandes Husky dépréciées des hooks Git
+
 ### [0.2.15](https://github.com/ephect-io/vscode-intelephect/compare/v0.2.14...v0.2.15) (2025-11-16)
 
 ### [0.2.14](https://github.com/ephect-io/vscode-intelephect/compare/v0.2.13...v0.2.14) (2025-11-16)
