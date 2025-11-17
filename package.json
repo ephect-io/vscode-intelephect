@@ -2,7 +2,7 @@
   "name": "vscode-intelephect",
   "displayName": "Ephect Syntax Highlighting",
   "description": "Syntax highlighting for Ephect framework templates with HTML HEREDOC and simplified PHP syntax",
-  "version": "0.2.17",
+  "version": "0.2.18",
   "publisher": "ephect-io",
   "engines": {
     "vscode": "^1.70.0"

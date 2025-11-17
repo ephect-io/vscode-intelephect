@@ -1,6 +1,17 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+All notable changes to this project will be documented in this file. See
+[standard-version](https://github.com/conventional-changelog/standard-version) for commit
+guidelines.
+
+### [0.2.18](https://github.com/ephect-io/vscode-intelephect/compare/v0.2.17...v0.2.18) (2025-11-17)
+
+### 🐛 Corrections de bugs
+
+- reintroduce php directives
+  ([f71bb1a](https://github.com/ephect-io/vscode-intelephect/commit/f71bb1a181d2692bdef001f51a5616c3a560d553))
+- restore php coloring
+  ([6889aba](https://github.com/ephect-io/vscode-intelephect/commit/6889abae0db6e9cab00e1e979995f8f1f10a6fb1))
 
 ### [0.2.17](https://github.com/ephect-io/vscode-intelephect/compare/v0.2.16...v0.2.17) (2025-11-17)
 
@@ -10,8 +21,10 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### 🐛 Corrections de bugs
 
-* remove husky deprecations ([96837c2](https://github.com/ephect-io/vscode-intelephect/commit/96837c2232bf8af5134157cfd94ba1ab40ceab9f))
-* try to fix php coloring ([464b5be](https://github.com/ephect-io/vscode-intelephect/commit/464b5bee29dcc2c79f64d69b168d698caa8a5d80))
+- remove husky deprecations
+  ([96837c2](https://github.com/ephect-io/vscode-intelephect/commit/96837c2232bf8af5134157cfd94ba1ab40ceab9f))
+- try to fix php coloring
+  ([464b5be](https://github.com/ephect-io/vscode-intelephect/commit/464b5bee29dcc2c79f64d69b168d698caa8a5d80))
 
 ### [0.2.16](https://github.com/ephect-io/vscode-intelephect/compare/v0.2.15...v0.2.16) (2025-11-16)
 
@@ -19,7 +32,6 @@ All notable changes to this project will be documented in this file. See [standa
 
 - **bug:** try to colorize arobase tags and liquid expressions like php expressions
   ([32aeba2](https://github.com/ephect-io/vscode-intelephect/commit/32aeba2026626674a7b27c626b9cf73ffdc26700))
-
 
 ### 🧹 Maintenance
 
