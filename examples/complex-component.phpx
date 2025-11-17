@@ -52,7 +52,7 @@ function ComplexComponent($props): string
                         <!-- Directive @while pour les tags -->
                         @if %item->tags do
                             <div class="tags">
-                                @op %tagIndex = 0;
+                                @op %tagIndex = 0
                                 @while %tagIndex < count(item->tags) && %tagIndex < 5 do
                                     <span class="tag">{{ item->tags[tagIndex]->name }}</span>
                                     @op %tagIndex++;
@@ -117,80 +117,6 @@ function ComplexComponent($props): string
                     @done
                 </div>
             @done
-        @done
-    </div>
-    HTML);
-}
-
-function AdvancedTable($props): string
-{
-    useEffect(function($props, $data, $columns, $filters) {
-        $data = $props->data ?? [];
-        $columns = $props->columns ?? [];
-        $filters = $props->filters ?? [];
-    });
-
-    return (<<< HTML
-    <div class="advanced-table">
-        @op %filteredData = []
-        @op %filterCount = 0
-        
-        <!-- Application des filtres avec @while -->
-        @for %data as %row do
-            @op %passesFilter = true
-            @op %filterIndex = 0
-            
-            @while %filterIndex < count(%filters) && %passesFilter do
-                @op %filter = %filters[%filterIndex]
-                @if %filter->active do
-                    @op %fieldValue = %row->getValue(%filter->field)
-                    @if %filter->operator == 'equals' && %fieldValue != %filter->value do
-                        @op %passesFilter = false
-                    @elseif %filter->operator == 'contains' && !str_contains(%fieldValue, %filter->value) do
-                        @op %passesFilter = false
-                    @done
-                @done
-                @op %filterIndex++
-            @done
-            
-            @if %passesFilter do
-                @op %filteredData[] = %row
-            @done
-        @done
-        
-        <table class="data-table">
-            <thead>
-                <tr>
-                @for %columns as %column do
-                    <th>{{ column->title }}</th>
-                @done
-                </tr>
-            </thead>
-            <tbody>
-            @for %filteredData as %row do
-                <tr>
-                @for %columns as %column do
-                    <td>
-                        @if %column->type == 'currency' do
-                            @op %value = number_format(%row->getValue(%column->field), 2)
-                            {{ value }} €
-                        @elseif %column->type == 'date' do
-                            @op %date = %row->getValue(%column->field)
-                            {{ date ? %date->format('d/m/Y') : 'N/A' }}
-                        @else
-                            {{ row->getValue(column->field) }}
-                        @done
-                    </td>
-                @done
-                </tr>
-            @done
-            </tbody>
-        </table>
-        
-        @do
-            <div class="table-summary">
-                <p>{{ count(filteredData) }} résultats sur {{ count(data) }} total</p>
-            </div>
         @done
     </div>
     HTML);

@@ -1,0 +1,57 @@
+<?php
+
+namespace Example\Components;
+
+use function Ephect\Hooks\useEffect;
+use function Ephect\Hooks\useState;
+
+function DataTable($props): string
+{
+    useEffect(function($props, $columns, $data, $sortBy) {
+        $columns = $props->columns ?? [];
+        $data = $props->data ?? [];
+        $sortBy = $props->sortBy ?? null;
+    });
+
+    return (<<< HTML
+    <div class="data-table-container">
+        <table class="data-table">
+            <thead>
+                <tr>
+                @for %columns as %column do
+                    <th class="sortable {{ sortBy == column->key ? 'sorted' : '' }}">
+                        {{ column->label }}
+                        @if %column->sortable do
+                            <span class="sort-icon">⇅</span>
+                        @done
+                    </th>
+                @done
+                </tr>
+            </thead>
+            <tbody>
+            @for %data as %row do
+                <tr class="{{ row->cssClass ?? '' }}">
+                @for %columns as %column do
+                    <td>
+                        @if %column->type == 'link' do
+                            <a href="{{ row->getValue(column->key)->url }}">
+                                {{ row->getValue(column->key)->text }}
+                            </a>
+                        @else
+                            {{ row->getValue(column->key) }}
+                        @done
+                    </td>
+                @done
+                </tr>
+            @done
+            </tbody>
+        </table>
+        
+        @if %data|length == 0 do
+            <div class="empty-state">
+                <p>Aucune donnée à afficher</p>
+            </div>
+        @done
+    </div>
+    HTML);
+}
