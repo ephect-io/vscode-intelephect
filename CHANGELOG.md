@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file. See
 [standard-version](https://github.com/conventional-changelog/standard-version) for commit
 guidelines.
 
+### [0.2.20](https://github.com/ephect-io/vscode-intelephect/compare/v0.2.19...v0.2.20) (2025-11-17)
+
+### ✨ Nouvelles fonctionnalités
+
+- restart from blade syntax
+  ([d809bb8](https://github.com/ephect-io/vscode-intelephect/commit/d809bb8823e3f856e3c3f7e7a7b6697e5fe48665))
+
+### 🐛 Corrections de bugs
+
+- add ephect directives to blade syntax
+  ([9a32d21](https://github.com/ephect-io/vscode-intelephect/commit/9a32d21b820541a3272057ae95f98b19fa541d0e))
+
 ### [0.2.19](https://github.com/ephect-io/vscode-intelephect/compare/v0.2.18...v0.2.19) (2025-11-17)
 
 ### 🐛 Corrections de bugs
