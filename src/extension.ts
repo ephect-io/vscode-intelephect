@@ -1,19 +1,20 @@
 import * as vscode from 'vscode';
+import { formatEphectDocument } from '../server/ephectFormatter';
 
 export function activate(context: vscode.ExtensionContext) {
   console.log('Ephect Syntax Highlighting extension is now active!');
 
-  // Check if Intelephense is installed and active
+  // --- Compatibility check with Intelephense ---
   const intelephenseExt = vscode.extensions.getExtension('bmewburn.vscode-intelephense-client');
 
   if (intelephenseExt) {
     console.log('Intelephense detected - running in compatibility mode');
 
-    // Show informational message on first activation
     const hasShownCompatibilityMessage = context.globalState.get(
       'ephect.hasShownCompatibilityMessage',
       false
     );
+
     if (!hasShownCompatibilityMessage) {
       vscode.window
         .showInformationMessage(
@@ -29,7 +30,6 @@ export function activate(context: vscode.ExtensionContext) {
   } else {
     console.log('Intelephense not detected - running in standalone mode');
 
-    // Suggest installing Intelephense for better PHP support
     const config = vscode.workspace.getConfiguration('ephect');
     const enableCompatibility = config.get('enableIntelephenseCompatibility', true);
 
@@ -38,6 +38,7 @@ export function activate(context: vscode.ExtensionContext) {
         'ephect.hasShownIntelephenseSuggestion',
         false
       );
+
       if (!hasShownIntelephenseSuggestion) {
         vscode.window
           .showInformationMessage(
@@ -58,6 +59,18 @@ export function activate(context: vscode.ExtensionContext) {
       }
     }
   }
+
+  // --- Ephect Formatter Registration ---
+  const formatter = vscode.languages.registerDocumentFormattingEditProvider('php', {
+    provideDocumentFormattingEdits(document: vscode.TextDocument) {
+      const text = document.getText();
+      const formatted = formatEphectDocument(text);
+
+      return [new vscode.TextEdit(new vscode.Range(0, 0, document.lineCount, 0), formatted)];
+    },
+  });
+
+  context.subscriptions.push(formatter);
 }
 
 export function deactivate() {}

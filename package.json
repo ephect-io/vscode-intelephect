@@ -25,12 +25,14 @@
   "contributes": {
     "languages": [
       {
-        "id": "phpx",
+        "id": "php",
         "aliases": [
           "Ephect PHP",
           "phpx"
         ],
         "extensions": [
+          ".php",
+          ".phtml",
           ".phpx"
         ],
         "configuration": "./language-configuration.json"
@@ -38,14 +40,9 @@
     ],
     "grammars": [
       {
-        "language": "phpx",
-        "scopeName": "source.php.ephect",
-        "path": "./syntaxes/ephect-php.tmLanguage.json"
-      },
-      {
         "language": "php",
         "scopeName": "source.php.ephect",
-        "path": "./syntaxes/ephect-php.tmLanguage.json",
+        "path": "./syntaxes/ephect.tmLanguage.json",
         "injectTo": [
           "source.php"
         ]
@@ -64,9 +61,34 @@
     },
     "themes": [
       {
+        "label": "Ephect Light",
+        "uiTheme": "vs",
+        "path": "./themes/ephect-light.json"
+      },
+      {
+        "label": "Ephect Dark Origin",
+        "uiTheme": "vs-dark",
+        "path": "./themes/ephect-dark-origin.json"
+      },
+      {
         "label": "Ephect Dark",
         "uiTheme": "vs-dark",
-        "path": "./themes/ephect-dark-color-theme.json"
+        "path": "./themes/ephect-dark.json"
+      },
+      {
+        "label": "Ephect Dark (Modified)",
+        "uiTheme": "vs-dark",
+        "path": "./themes/ephect-dark-solo.json"
+      },
+      {
+        "label": "Ephect Monokai",
+        "uiTheme": "vs-dark",
+        "path": "./themes/ephect-monokai.json"
+      },
+      {
+        "label": "Ephect Midnight",
+        "uiTheme": "vs-dark",
+        "path": "./themes/ephect-midnight.json"
       }
     ],
     "configurationDefaults": {
@@ -104,6 +126,9 @@
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
+    "@swc/core": "^1.15.2",
+    "@swc/jest": "^0.2.39",
+    "@types/jest": "^30.0.0",
     "@types/node": "^24.10.1",
     "@types/vscode": "^1.70.0",
     "@typescript-eslint/eslint-plugin": "^8.46.4",
@@ -114,10 +139,15 @@
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9.39.1",
     "husky": "^9.1.7",
+    "jest": "^30.2.0",
     "lint-staged": "^16.2.6",
     "prettier": "^3.6.2",
     "standard-version": "^9.5.0",
-    "typescript": "^5.9.3"
+    "ts-jest": "^29.4.5",
+    "typescript": "^5.9.3",
+    "vscode-languageserver": "^9.0.1",
+    "vscode-languageserver-textdocument": "^1.0.12",
+    "vscode-test": "^1.6.1"
   },
   "config": {
     "commitizen": {
