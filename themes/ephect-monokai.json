@@ -1,0 +1,40 @@
+{
+  "$schema": "vscode://schemas/color-theme",
+  "name": "Ephect Monokai",
+  "type": "dark",
+  "colors": {
+    "editor.background": "#272822",
+    "editor.foreground": "#f8f8f2"
+  },
+  "tokenColors": [
+    {
+      "scope": ["keyword.control.ephect", "punctuation.definition.keyword.ephect"],
+      "settings": {
+        "foreground": "#f92672",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "scope": ["variable.other.ephect", "variable.other.property.ephect"],
+      "settings": {
+        "foreground": "#66d9ef"
+      }
+    },
+    {
+      "scope": [
+        "meta.interpolation.ephect",
+        "punctuation.definition.template-expression.begin.ephect",
+        "punctuation.definition.template-expression.end.ephect"
+      ],
+      "settings": {
+        "foreground": "#a6e22e"
+      }
+    },
+    {
+      "scope": ["meta.embedded.block.html.ephect"],
+      "settings": {
+        "foreground": "#f8f8f2"
+      }
+    }
+  ]
+}
