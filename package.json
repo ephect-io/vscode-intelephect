@@ -42,7 +42,7 @@
       {
         "language": "php",
         "scopeName": "source.php.ephect",
-        "path": "./syntaxes/ephect.tmLanguage.json",
+        "path": "./syntaxes/ephect-php.tmLanguage.json",
         "injectTo": [
           "source.php"
         ]

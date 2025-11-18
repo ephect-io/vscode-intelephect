@@ -79,8 +79,43 @@
           }
         },
         {
-          "name": "keyword.control.ephect",
-          "match": "\\b(?:as|do)\\b"
+          "name": "keyword.control.ephect.do",
+          "match": "\\bdo\\s*$"
+        },
+
+        {
+          "name": "keyword.control.ephect.as",
+          "match": "\\bas\\b"
+        },
+
+        {
+          "name": "keyword.operator.ephect.in",
+          "match": "\\bin\\b"
+        },
+
+        {
+          "name": "keyword.operator.ephect.instanceof",
+          "match": "\\binstanceof\\b"
+        },
+        {
+          "name": "variable.parameter.ephect",
+          "match": "%[a-zA-Z_][a-zA-Z0-9_]*"
+        },
+
+        {
+          "begin": "\\{\\{",
+          "end": "\\}\\}",
+          "name": "entity.other.ephect.liquid",
+          "patterns": [
+            {
+              "match": "%?[a-zA-Z_][a-zA-Z0-9_\\->]*",
+              "name": "variable.other.ephect"
+            },
+            {
+              "match": "\\b(as|in|instanceof)\\b",
+              "name": "keyword.operator.ephect"
+            }
+          ]
         }
       ]
     },
