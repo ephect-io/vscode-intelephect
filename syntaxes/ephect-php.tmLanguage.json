@@ -62,7 +62,7 @@
       "patterns": [
         {
           "name": "keyword.control.ephect",
-          "match": "(@)(?:for|endfor|while|if|endif|elseif|else|do|done|op)\\b",
+          "match": "(@)(?:for|endfor|while|if|endif|elseif|else|do|done|break|continue|switch|case|default|op)\\b",
           "captures": {
             "1": {
               "name": "punctuation.definition.keyword.ephect"
