@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "forceConsistentCasingInFileNames": true,
     "module": "commonjs",
     "target": "ES2020",
     "outDir": "out",
@@ -8,11 +7,23 @@
     "sourceMap": true,
     "rootDir": ".",
     "strict": true,
+    "moduleResolution": "node",
+    "baseUrl": "./",
     "types": ["vscode", "node", "jest"],
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "declarationMap": true,
+    "removeComments": false,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true
   },
   "include": ["src/**/*", "server/**/*", "tests/**/*", "server"],
   "exclude": ["node_modules", "out", "**/*.test.ts", "**/*.spec.ts"]
