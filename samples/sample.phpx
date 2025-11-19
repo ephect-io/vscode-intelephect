@@ -1,0 +1,22 @@
+<?php
+
+namespace QuickStart;
+
+function MyComponent($props): string
+{
+    $name = $props->name;
+
+    return (<<< HTML
+    <html>
+    <head>
+        <title>Ephect QuickStart page</title>
+    </head>
+    <body>
+        <h1>My page</h1>
+        <h2>
+            Hello {{ name }}
+        </h2>
+    </body>
+    </html>
+    HTML);
+}

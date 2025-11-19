@@ -1,0 +1,40 @@
+{
+  "name": "intelephect",
+  "displayName": "intelephect",
+  "description": "Ephect framework syntax support",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.106.1"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "phpx",
+      "aliases": ["Ephect phpx", "phpx"],
+      "extensions": [".phpx",".ephect.php",".phtml"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "phpx",
+      "scopeName": "source.ephect",
+      "path": "./syntaxes/phpx.tmLanguage.json"
+    }]
+  },
+  "scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"lint": "eslint",
+		"watch": "tsc -watch -p ./"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.13.0",
+		"@stylistic/eslint-plugin": "^2.9.0",
+		"@types/node": "^22",
+		"@types/vscode": "^1.100.0",
+		"eslint": "^9.13.0",
+		"typescript": "^5.8.2",
+		"typescript-eslint": "^8.26.0"
+	}
+}
