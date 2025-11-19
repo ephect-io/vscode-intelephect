@@ -1,65 +1,62 @@
-# intelephect README
+# Intelephect
 
-This is the README for your extension "intelephect". After writing up a brief description, we recommend including the following sections.
+Intelephect extends the PHP editing experience in VS Code with support for Ephect framework
+templates.
 
-## Features
+## About the Ephect framework
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+Ephect is a PHP-first presentation framework focused on highly interactive server-driven UI.
 
-For example if there is an image subfolder under your extension project workspace:
+Ephect blends a lightweight PHP framework with a JavaScript companion library so you can compose
+interactive interfaces from the backend.
 
-\!\[feature X\]\(images/feature-x.png\)
+- **Component-first templating** – Build reusable HTML-like components in PHP, cascade them
+  together, and inherit layouts via named `<Slot>` placeholders.
+- **Hooks-inspired data flow** – Manage state with familiar helpers such as `useState`, `useStore`,
+  `useMemory` mirroring modern frontend patterns.
+- **CLI productivity tooling** – The `php use` command builds and serves Ephect apps, providing fast
+  webpack-driven asset builds.
+- **Source & docs** – Dive into the full framework README and examples at
+  [github.com/ephect-io/framework](https://github.com/ephect-io/framework).
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## Key capabilities
 
-## Requirements
+- 🔍 **Template-aware highlighting** – Applies HTML and Ephect-specific scopes on
+  `<<< HTML ... HTML` HEREDOC blocks.
+- 🧠 **Smart directive support** – Colours Ephect control keywords such as `@if`, `@for`, `@do`,
+  `@done`, etc.
+- 🧵 **Variable interpolation** – Highlights Ephect variables (`%user->name`) and liquid-style
+  expressions (`{{ user->email }}`) for quick visual scanning.
+- 🤝 **Intelephense friendly** – Works alongside the `bmewburn.vscode-intelephense-client`
+  extension; the compatibility toggle is enabled by default.
+- 🎨 **Ephect Dark theme** – Ships with a matching dark theme tuned for Ephect templates and PHP
+  development.
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+## Usage
 
-## Extension Settings
+Wrap your template markup in an Ephect HEREDOC block and edit it like any other PHP file:
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+```php
+<?php
 
-For example:
+namespace QuickStart;
 
-This extension contributes the following settings:
+function MyComponent($props): string
+{
+    $user = $props->user;
+    $isActive = $user->isActive;
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+    return (<<< HTML
+        <div class="user-card">
+            <h2>{{ user->name }}</h2>
+            @if %isActive do
+                <span class="badge active">Active</span>
+            @done
+        </div>
+    HTML);
+}
 
-## Known Issues
+```
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Learn more at [ephect.io](https://ephect.io) and explore the official open-source projects on GitHub
+under the [@ephect-io](https://github.com/ephect-io) organization.

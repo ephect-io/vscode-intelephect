@@ -1,0 +1,109 @@
+{
+  "name": "Ephect Test",
+  "type": "dark", 
+  "colors": {
+    "editor.background": "#1e1e1e",
+    "editor.foreground": "#d4d4d4"
+  },
+  "tokenColors": [
+    {
+      "name": "Ephect @ Keywords and Control Words",
+      "scope": [
+        "keyword.control.phpx",
+        "string.unquoted.heredoc.php keyword.control.phpx",
+        "keyword.control.liquid.phpx",
+        "string.unquoted.heredoc.php keyword.control.liquid.phpx"
+      ],
+      "settings": {
+        "foreground": "#FF6B35",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Ephect % Variables", 
+      "scope": [
+        "variable.parameter.global.phpx",
+        "variable.parameter.liquid.phpx",
+        "string.unquoted.heredoc.php variable.parameter.global.phpx",
+        "string.unquoted.heredoc.php variable.parameter.liquid.phpx"
+      ],
+      "settings": {
+        "foreground": "#FFD23F",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Default Text",
+      "scope": "source",
+      "settings": {
+        "foreground": "#d4d4d4"
+      }
+    },
+    {
+      "name": "PHP Keywords",
+      "scope": "keyword.control.php",
+      "settings": {
+        "foreground": "#569CD6"
+      }
+    },
+    {
+      "name": "Comments",
+      "scope": "comment",
+      "settings": {
+        "foreground": "#6A9955",
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "Strings",
+      "scope": "string",
+      "settings": {
+        "foreground": "#CE9178"
+      }
+    },
+    {
+      "name": "Ephect Liquid in HEREDOC",
+      "scope": [
+        "string.unquoted.heredoc.php meta.liquid.double-braces.phpx",
+        "string.unquoted.heredoc.php meta.liquid.single-braces.phpx",
+        "string.unquoted.heredoc.php punctuation.definition.liquid.begin.phpx",
+        "string.unquoted.heredoc.php punctuation.definition.liquid.end.phpx",
+        "string.unquoted.heredoc.php variable.other.liquid.phpx"
+      ],
+      "settings": {
+        "foreground": "#9CDCFE"
+      }
+    },
+    {
+      "name": "PHP Variables in Liquid",
+      "scope": [
+        "variable.other.php.liquid.phpx",
+        "string.unquoted.heredoc.php variable.other.php.liquid.phpx"
+      ],
+      "settings": {
+        "foreground": "#9CDCFE"
+      }
+    },
+    {
+      "name": "Liquid Operators",
+      "scope": [
+        "keyword.operator.liquid.phpx",
+        "string.unquoted.heredoc.php keyword.operator.liquid.phpx"
+      ],
+      "settings": {
+        "foreground": "#C586C0"
+      }
+    },
+    {
+      "name": "Ephect Operator Keywords",
+      "scope": [
+        "keyword.operator.phpx",
+        "string.unquoted.heredoc.php keyword.operator.phpx"
+      ],
+      "settings": {
+        "foreground": "#C586C0",
+        "fontStyle": "bold"
+      }
+    }
+  ]
+}

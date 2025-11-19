@@ -7,7 +7,8 @@
     "vscode": "^1.106.1"
   },
   "categories": [
-    "Programming Languages"
+    "Programming Languages",
+    "Themes"
   ],
   "contributes": {
     "languages": [{
@@ -19,22 +20,89 @@
     "grammars": [{
       "language": "phpx",
       "scopeName": "source.ephect",
-      "path": "./syntaxes/phpx.tmLanguage.json"
-    }]
+      "path": "./syntaxes/phpx.tmLanguage.json",
+      "injectTo": [
+        "source.php",
+        "source.html.php"
+      ]
+    }],
+    "themes": [
+      {
+        "label": "Ephect Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/ephect-dark-theme.json"
+      },
+      {
+        "label": "Ephect Test",
+        "uiTheme": "vs-dark",
+        "path": "./themes/ephect-test-theme.json"
+      }
+    ]
   },
-  "scripts": {
-		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
-		"lint": "eslint",
-		"watch": "tsc -watch -p ./"
-	},
-	"devDependencies": {
-		"@eslint/js": "^9.13.0",
-		"@stylistic/eslint-plugin": "^2.9.0",
-		"@types/node": "^22",
-		"@types/vscode": "^1.100.0",
-		"eslint": "^9.13.0",
-		"typescript": "^5.8.2",
-		"typescript-eslint": "^8.26.0"
-	}
+"scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint src --ext ts",
+    "lint:fix": "eslint src --ext ts --fix",
+    "commit": "git-cz",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "release": "standard-version",
+    "prepare": "husky install",
+    "test:commit": "commitlint --from HEAD~1 --to HEAD --verbose",
+    "package": "vsce package",
+    "publish": "vsce publish",
+    "publish:patch": "vsce publish patch",
+    "publish:minor": "vsce publish minor",
+    "publish:major": "vsce publish major",
+    "publish:token": "vsce publish --pat $VSCE_PAT",
+    "push": "git push --follow-tags origin $(git status|head -n 1|sed -E  's/On branch (.*)/\\1/')"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "@swc/core": "^1.15.2",
+    "@swc/jest": "^0.2.39",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.10.1",
+    "@types/vscode": "^1.70.0",
+    "@typescript-eslint/eslint-plugin": "^8.46.4",
+    "@typescript-eslint/parser": "^8.46.4",
+    "@vscode/vsce": "^3.7.0",
+    "commitizen": "^4.3.1",
+    "conventional-changelog-cli": "^5.0.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^9.39.1",
+    "husky": "^9.1.7",
+    "jest": "^30.2.0",
+    "lint-staged": "^16.2.6",
+    "prettier": "^3.6.2",
+    "standard-version": "^9.5.0",
+    "ts-jest": "^29.4.5",
+    "typescript": "^5.9.3",
+    "vscode-languageserver": "^9.0.1",
+    "vscode-languageserver-textdocument": "^1.0.12",
+    "vscode-test": "^1.6.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ephect-io/vscode-intelephect.git"
+  },
+  "homepage": "https://github.com/ephect-io/vscode-intelephect#readme",
+  "bugs": {
+    "url": "https://github.com/ephect-io/vscode-intelephect/issues"
+  },
+  "icon": "assets/icon.png",
+  "galleryBanner": {
+    "color": "#1e1e1e",
+    "theme": "dark"
+  },
+  "license": "MIT"
 }

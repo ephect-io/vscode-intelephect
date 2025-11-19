@@ -5,6 +5,7 @@ namespace QuickStart;
 function MyComponent($props): string
 {
     $name = $props->name;
+    $items = $props->collection()->getItems();
 
     return (<<< HTML
     <html>
@@ -13,9 +14,16 @@ function MyComponent($props): string
     </head>
     <body>
         <h1>My page</h1>
+        @if %name != '' do
         <h2>
             Hello {{ name }}
+            <ul>
+                @for %items as %item
+                {{ %item->name }}
+                @done
+            </ul>
         </h2>
+        @done
     </body>
     </html>
     HTML);

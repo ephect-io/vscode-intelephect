@@ -1,0 +1,42 @@
+<?php
+
+namespace QuickStart;
+
+function MyTest($props): string
+{
+
+    // Regular PHP keywords
+    if ($user) {
+        $say = "Hello World";
+    }
+
+    return (<<< HTML
+    <html>
+    <head>
+        <title>Ephect QuickStart page</title>
+    </head>
+    <body>
+        @if %condition do
+            {{ $say }}
+            {{ %user_name }}
+        @done
+        
+        @for $item in %items do
+            { $item->name } - { $item->price }
+        @done
+        
+        @foreach %products as $product do
+            @if $product instanceof Product do
+                <div>{{ $product->name }}</div>
+            @done
+        @done
+        
+        <MyComponent 
+            prop1="value1" 
+            prop2="{ %product->price }" 
+            prop3="{{ $user->name }}" 
+        />
+    </body>
+    </html>
+    HTML);
+}
