@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file. See
 [standard-version](https://github.com/conventional-changelog/standard-version) for commit
 guidelines.
 
+### [0.2.28](https://github.com/ephect-io/vscode-intelephect/compare/v0.2.27...v0.2.28) (2025-11-20)
+
+### 🐛 Corrections de bugs
+
+- remove failing theme from selection
+  ([5e53485](https://github.com/ephect-io/vscode-intelephect/commit/5e53485f2c524cc7ace3661ad2b147f3b68691ec))
+
 ### [0.2.27](https://github.com/ephect-io/vscode-intelephect/compare/v0.2.26...v0.2.27) (2025-11-19)
 
 ### 🐛 Corrections de bugs
