@@ -66,49 +66,9 @@
         "path": "./themes/ephect-light.json"
       },
       {
-        "label": "Ephect Light Plus",
-        "uiTheme": "vs",
-        "path": "./themes/ephect-light-plus.json"
-      },
-      {
-        "label": "Ephect Light Modern",
-        "uiTheme": "vs",
-        "path": "./themes/ephect-light-modern.json"
-      },
-      {
         "label": "Ephect Dark",
         "uiTheme": "vs-dark",
-        "path": "./themes/ephect-dark.json"
-      },
-      {
-        "label": "Ephect Dark Plus",
-        "uiTheme": "vs-dark",
-        "path": "./themes/ephect-dark-plus.json"
-      },
-      {
-        "label": "Ephect Dark Modern",
-        "uiTheme": "vs-dark",
-        "path": "./themes/ephect-dark-modern.json"
-      },
-      {
-        "label": "Ephect Dark Origin",
-        "uiTheme": "vs-dark",
-        "path": "./themes/ephect-dark-origin.json"
-      },
-      {
-        "label": "Ephect Dark (Modified)",
-        "uiTheme": "vs-dark",
-        "path": "./themes/ephect-dark-solo.json"
-      },
-      {
-        "label": "Ephect Monokai",
-        "uiTheme": "vs-dark",
-        "path": "./themes/ephect-monokai.json"
-      },
-      {
-        "label": "Ephect Midnight",
-        "uiTheme": "vs-dark",
-        "path": "./themes/ephect-midnight.json"
+        "path": "./themes/ephect-dark-new.json"
       }
     ],
     "configurationDefaults": {
@@ -141,7 +101,7 @@
     "publish:minor": "vsce publish minor",
     "publish:major": "vsce publish major",
     "publish:token": "vsce publish --pat $VSCE_PAT",
-    "push": "git push --follow-tags origin $GIT_BRANCH && npm run publish"
+    "push": "git push --follow-tags origin $(git status|head -n 1|sed -E 's/On branch (.*)/\\1/')"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",
