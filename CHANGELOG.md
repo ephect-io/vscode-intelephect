@@ -4,14 +4,21 @@ All notable changes to this project will be documented in this file. See
 [standard-version](https://github.com/conventional-changelog/standard-version) for commit
 guidelines.
 
-### [0.2.27](https://github.com/ephect-io/vscode-intelephect/compare/v0.2.26...v0.2.27) (2025-11-20)
+### [0.2.28](https://github.com/ephect-io/vscode-intelephect/compare/v0.2.27...v0.2.28) (2025-11-20)
 
 ### 🐛 Corrections de bugs
 
-- do not publish on push
-  ([b5d0783](https://github.com/ephect-io/vscode-intelephect/commit/b5d0783f1dd13c8ba2f785f35238e5aa463bba2a))
-- repair commit validation
-  ([6d06fcb](https://github.com/ephect-io/vscode-intelephect/commit/6d06fcb0ed8d6bf4410ff8e53965de6b3c551179))
+- remove failing theme from selection
+  ([5e53485](https://github.com/ephect-io/vscode-intelephect/commit/5e53485f2c524cc7ace3661ad2b147f3b68691ec))
+
+### [0.2.27](https://github.com/ephect-io/vscode-intelephect/compare/v0.2.26...v0.2.27) (2025-11-19)
+
+### 🐛 Corrections de bugs
+
+- make the code colorful
+  ([f723cf8](https://github.com/ephect-io/vscode-intelephect/commit/f723cf8cf2972b2b7bd512c194cc39da1558dbec))
+- update syntax file
+  ([7a692c3](https://github.com/ephect-io/vscode-intelephect/commit/7a692c332025ce338d0f8b620d544e531a7fd95f))
 
 ### [0.2.26](https://github.com/ephect-io/vscode-intelephect/compare/v0.2.25...v0.2.26) (2025-11-18)
 

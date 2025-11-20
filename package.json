@@ -2,10 +2,10 @@
   "name": "vscode-intelephect",
   "displayName": "Intelephect",
   "description": "Syntax highlighting for Ephect framework templates with HTML HEREDOC and simplified PHP syntax",
-  "version": "0.2.27",
+  "version": "0.2.28",
   "publisher": "ephect-io",
   "engines": {
-    "vscode": "^1.70.0"
+    "vscode": "^1.105.1"
   },
   "categories": [
     "Programming Languages",
@@ -21,30 +21,30 @@
     "template"
   ],
   "activationEvents": [],
-  "main": "./out/extension.js",
+  "main": "./out/src/extension.js",
   "contributes": {
     "languages": [
       {
-        "id": "php",
+        "id": "phpx",
         "aliases": [
           "Ephect PHP",
           "phpx"
         ],
         "extensions": [
-          ".php",
-          ".phtml",
-          ".phpx"
+          ".phpx",
+          ".ephect.php"
         ],
         "configuration": "./language-configuration.json"
       }
     ],
     "grammars": [
       {
-        "language": "php",
-        "scopeName": "source.php.ephect",
-        "path": "./syntaxes/ephect.tmLanguage.json",
+        "language": "phpx",
+        "scopeName": "source.ephect",
+        "path": "./syntaxes/phpx.tmLanguage.json",
         "injectTo": [
-          "source.php"
+          "source.php",
+          "source.html.php"
         ]
       }
     ],
@@ -66,29 +66,9 @@
         "path": "./themes/ephect-light.json"
       },
       {
-        "label": "Ephect Dark Origin",
-        "uiTheme": "vs-dark",
-        "path": "./themes/ephect-dark-origin.json"
-      },
-      {
         "label": "Ephect Dark",
         "uiTheme": "vs-dark",
-        "path": "./themes/ephect-dark.json"
-      },
-      {
-        "label": "Ephect Dark (Modified)",
-        "uiTheme": "vs-dark",
-        "path": "./themes/ephect-dark-solo.json"
-      },
-      {
-        "label": "Ephect Monokai",
-        "uiTheme": "vs-dark",
-        "path": "./themes/ephect-monokai.json"
-      },
-      {
-        "label": "Ephect Midnight",
-        "uiTheme": "vs-dark",
-        "path": "./themes/ephect-midnight.json"
+        "path": "./themes/ephect-dark-new.json"
       }
     ],
     "configurationDefaults": {
