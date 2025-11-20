@@ -121,7 +121,7 @@
     "publish:minor": "vsce publish minor",
     "publish:major": "vsce publish major",
     "publish:token": "vsce publish --pat $VSCE_PAT",
-    "push": "git push --follow-tags origin $GIT_BRANCH && npm run publish"
+    "push": "git push --follow-tags origin $(git rev-parse --abbrev-ref HEAD)"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",
