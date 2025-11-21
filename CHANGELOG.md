@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file. See
 [standard-version](https://github.com/conventional-changelog/standard-version) for commit
 guidelines.
 
+### [0.2.30](https://github.com/ephect-io/vscode-intelephect/compare/v0.2.29...v0.2.30) (2025-11-21)
+
+### ✨ Nouvelles fonctionnalités
+
+- feat: add support for autocompletion and phpx
+  ([de4af23](https://github.com/ephect-io/vscode-intelephect/commit/de4af230a7c76a69e7e9a4cca0b8a71b9ac130d7))
+
+### 🐛 Corrections de bugs
+
+- force end of line to be a line feed
+  ([207cea9](https://github.com/ephect-io/vscode-intelephect/commit/207cea9a2ea489701fd2de2a13abeaca6e47c527))
+- make npm run push working
+  ([41334a7](https://github.com/ephect-io/vscode-intelephect/commit/41334a718f48e6f3f06b9b649dce5d16b7505c2a))
+
 ### [0.2.29](https://github.com/ephect-io/vscode-intelephect/compare/v0.2.28...v0.2.29) (2025-11-20)
 
 ### 🐛 Corrections de bugs
