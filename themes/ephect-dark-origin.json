@@ -1,5 +1,5 @@
 {
-  "name": "Ephect Dark",
+  "name": "Ephect Dark Origin",
   "type": "dark",
   "colors": {
     "editor.background": "#1e1e1e",
@@ -18,7 +18,7 @@
     },
     {
       "name": "Variables",
-      "scope": ["variable.other.php", "variable.other.ephect"],
+      "scope": ["variable.other.php"],
       "settings": {
         "foreground": "#9CDCFE"
       }
@@ -27,8 +27,15 @@
       "name": "Ephect Template Variables",
       "scope": "variable.other.ephect",
       "settings": {
-        "foreground": "#FFD700",
+        "foreground": "#9CDCFE",
         "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Ephect Object Properties",
+      "scope": "variable.other.property.ephect",
+      "settings": {
+        "foreground": "#9CDCFE"
       }
     },
     {
@@ -40,10 +47,45 @@
     },
     {
       "name": "Ephect Control Keywords",
-      "scope": "keyword.control.ephect",
+      "scope": [
+        "keyword.control.ephect",
+        "keyword.control.ephect.conditional",
+        "keyword.control.ephect.loop",
+        "keyword.control.ephect.loop.end",
+        "keyword.control.ephect.block",
+        "keyword.control.ephect.do",
+        "keyword.control.ephect.end",
+        "keyword.control.ephect.operator",
+        "keyword.operator.word.ephect"
+      ],
       "settings": {
         "foreground": "#C586C0",
         "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Ephect Interpolation Delimiters",
+      "scope": [
+        "punctuation.definition.template-expression.begin.ephect",
+        "punctuation.definition.template-expression.end.ephect"
+      ],
+      "settings": {
+        "foreground": "#4EC9B0",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Ephect Variable Prefix",
+      "scope": "punctuation.definition.variable.ephect",
+      "settings": {
+        "foreground": "#9CDCFE"
+      }
+    },
+    {
+      "name": "Ephect Directive Symbol",
+      "scope": "punctuation.definition.keyword.ephect",
+      "settings": {
+        "foreground": "#C586C0"
       }
     },
     {
@@ -138,7 +180,7 @@
     },
     {
       "name": "HEREDOC HTML Content",
-      "scope": "string.quoted.heredoc.html.php",
+      "scope": "meta.embedded.block.html.ephect",
       "settings": {
         "foreground": "#d4d4d4"
       }
@@ -150,7 +192,7 @@
         "punctuation.definition.template-expression.end.ephect"
       ],
       "settings": {
-        "foreground": "#FFD700",
+        "foreground": "#4EC9B0",
         "fontStyle": "bold"
       }
     },

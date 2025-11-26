@@ -1,0 +1,58 @@
+{
+  "Ephect If": {
+    "prefix": "@if",
+    "body": ["@if ${1:condition} do", "    ${0}", "@done"],
+    "description": "Structure de contrôle Ephect : if"
+  },
+
+  "Ephect Elseif": {
+    "prefix": "@elseif",
+    "body": ["@elseif ${1:condition} do"],
+    "description": "Structure de contrôle Ephect : elseif"
+  },
+
+  "Ephect Else": {
+    "prefix": "@else",
+    "body": ["@else do", "    ${0}", "@done"],
+    "description": "Structure de contrôle Ephect : else"
+  },
+
+  "Ephect For": {
+    "prefix": "@for",
+    "body": ["@for %${1:item} as %${2:element} do", "    ${0}", "@done"],
+    "description": "Boucle for Ephect"
+  },
+
+  "Ephect While": {
+    "prefix": "@while",
+    "body": ["@while ${1:condition} do", "    ${0}", "@done"],
+    "description": "Boucle while Ephect"
+  },
+
+  "Ephect Switch": {
+    "prefix": "@switch",
+    "body": [
+      "@switch ${1:variable} do",
+      "    @case ${2:value} do",
+      "        ${3}",
+      "    @done",
+      "    @default do",
+      "        ${0}",
+      "    @done",
+      "@endswitch"
+    ],
+    "description": "Structure switch Ephect"
+  },
+
+  "Ephect OP": {
+    "prefix": "@op",
+    "body": ["@op ${0:instruction PHP}"],
+    "description": "Ligne PHP simple sans balises"
+  },
+
+  "Ephect Liquid": {
+    "prefix": "{{",
+    "body": ["{{ ${0:expression} }}"],
+    "description": "Expression Liquid Ephect"
+  }
+}

@@ -5,7 +5,26 @@
     "outDir": "out",
     "lib": ["ES2020"],
     "sourceMap": true,
-    "rootDir": "src",
-    "strict": true
-  }
+    "rootDir": ".",
+    "strict": true,
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "types": ["vscode", "node", "jest"],
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "declarationMap": true,
+    "removeComments": false,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true
+  },
+  "include": ["src/**/*", "server/**/*", "tests/**/*", "server"],
+  "exclude": ["node_modules", "out", "**/*.test.ts", "**/*.spec.ts"]
 }

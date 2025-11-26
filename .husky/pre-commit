@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
+
+set -e
+cd -- "$(dirname -- "$0")/.."
 
 # Exécuter lint-staged pour formater les fichiers modifiés
 npx lint-staged
